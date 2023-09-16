@@ -1,15 +1,9 @@
 import React from "react";
 import "./Button.css"
-import { TextSize } from "../Text/Text";
+import { TextSize } from "../Text/TextSize";
 import Text from "../Text/Text";
-
-export enum ButtonWidth {
-    HUG, FILL
-}
-
-export enum ButtonColor {
-    LIGHT, DARK, ALT
-}
+import { ButtonWidth } from "./ButtonWidth";
+import { ButtonColor } from "./ButtonColor";
 
 export default function Button(
     props : {

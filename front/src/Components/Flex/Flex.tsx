@@ -1,13 +1,7 @@
 import React from "react";
 import "./Flex.css"
-
-export enum FlexDirection {
-    ROW, COLUMN, WRAP
-}
-
-export enum FlexAlign {
-    START, CENTER, END, EXTREMES
-}
+import { FlexDirection } from "./FlexDirection";
+import { FlexAlign } from "./FlexAlign";
 
 export default function Flex(
     props : {

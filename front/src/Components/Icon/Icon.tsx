@@ -1,9 +1,5 @@
-import React from "react";
 import "./Icon.css"
-
-export enum IconSize {
-    BIG, MEDIUM, SMALL, SMALLER, DEFAULT
-}
+import { IconSize } from "./IconSize";
 
 export default function Icon(
     props : {

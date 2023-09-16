@@ -1,9 +1,6 @@
 import React from "react";
 import "./Text.css"
-
-export enum TextSize {
-    BIG, MEDIUM, SMALL, SMALLER
-}
+import { TextSize } from "./TextSize";
 
 export default function Text(
     props : {

@@ -1,8 +1,11 @@
 import "./Footer.css"
-import Text, { TextSize } from "../Text/Text"
-import Icon, { IconSize } from "../Icon/Icon"
-import React from "react"
-import Flex, { FlexAlign, FlexDirection } from "../Flex/Flex"
+import Text from "../Text/Text"
+import { TextSize } from "../Text/TextSize"
+import Icon from "../Icon/Icon"
+import { IconSize } from "../Icon/IconSize"
+import Flex from "../Flex/Flex"
+import { FlexAlign } from "../Flex/FlexAlign"
+import { FlexDirection } from "../Flex/FlexDirection"
 
 export default function TitleBar() {
 
@@ -18,9 +21,9 @@ export default function TitleBar() {
                 </Flex>
                 <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                     <Text fontSize={TextSize.SMALLER} link={null}>Redes: </Text>
-                    <Icon size={IconSize.SMALLER} click={()=>{window.location.href="twitter.com"}} src={"images/twittericon.png"}/>
-                    <Icon size={IconSize.SMALLER} click={()=>{window.location.href="facebook.com"}} src={"images/facebookicon.svg"}/>
-                    <Icon size={IconSize.SMALLER} click={()=>{window.location.href="instagram.com"}} src={"images/instagramicon.png"}/>
+                    <Icon size={IconSize.SMALLER} click={()=>{window.location.href="https://www.twitter.com"}} src={"images/twittericon.png"}/>
+                    <Icon size={IconSize.SMALLER} click={()=>{window.location.href="https://www.facebook.com"}} src={"images/facebookicon.svg"}/>
+                    <Icon size={IconSize.SMALLER} click={()=>{window.location.href="https://www.instagram.com"}} src={"images/instagramicon.png"}/>
                 </Flex>
             </Flex>
         </div>

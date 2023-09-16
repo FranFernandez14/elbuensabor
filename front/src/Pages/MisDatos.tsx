@@ -1,11 +1,15 @@
 import TitleBar from "../Components/TitleBar/TitleBar"
 import Content from "../Components/Content/Content";
 import React from "react";
-import Button, { ButtonColor, ButtonWidth } from "../Components/Button/Button";
-import { TextSize } from "../Components/Text/Text";
+import Button from "../Components/Button/Button";
+import { ButtonColor } from "../Components/Button/ButtonColor";
+import { ButtonWidth } from "../Components/Button/ButtonWidth";
+import { TextSize } from "../Components/Text/TextSize";
 import Text from "../Components/Text/Text";
 import ContentBox from "../Components/ContentBox/ContentBox";
-import Flex, { FlexAlign, FlexDirection } from "../Components/Flex/Flex";
+import Flex from "../Components/Flex/Flex";
+import { FlexAlign } from "../Components/Flex/FlexAlign";
+import { FlexDirection } from "../Components/Flex/FlexDirection";
 import Footer from "../Components/Footer/Footer";
 
 export default function MisDatos(){

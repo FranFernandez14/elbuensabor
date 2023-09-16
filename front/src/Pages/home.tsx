@@ -1,8 +1,10 @@
 import TitleBar from "../Components/TitleBar/TitleBar"
 import Content from "../Components/Content/Content";
 import React from "react";
-import Button, { ButtonColor, ButtonWidth } from "../Components/Button/Button";
-import { TextSize } from "../Components/Text/Text";
+import Button from "../Components/Button/Button";
+import { ButtonColor } from "../Components/Button/ButtonColor";
+import { ButtonWidth } from "../Components/Button/ButtonWidth";
+import { TextSize } from "../Components/Text/TextSize";
 import Text from "../Components/Text/Text";
 import ContentBox from "../Components/ContentBox/ContentBox";
 

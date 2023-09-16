@@ -1,7 +1,8 @@
 import "./TitleBar.css"
-import Text, { TextSize } from "../Text/Text"
-import Icon, { IconSize } from "../Icon/Icon"
-import React from "react"
+import Text from "../Text/Text"
+import { TextSize } from "../Text/TextSize"
+import Icon from "../Icon/Icon"
+import { IconSize } from "../Icon/IconSize"
 
 export default function TitleBar(props : {userid : number | undefined}) {
 
