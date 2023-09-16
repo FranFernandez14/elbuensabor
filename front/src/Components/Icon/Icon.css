@@ -1,0 +1,20 @@
+.Icon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Icon>div {
+    height: 100%;
+    aspect-ratio: 1;
+    background-size: contain;
+}
+
+.Icon>.Clickable {
+    cursor: pointer;
+    transition: all 100ms;
+}
+
+.Icon>.Clickable:active {
+    transform: scale(0.9);
+}
