@@ -1,0 +1,20 @@
+.Flex {
+    display: flex;
+    gap: 12px;
+}
+
+.Flex.Row {
+    flex-direction: row;
+    width: 100%;
+}
+
+.Flex.Column {
+    flex-direction: column;
+    height: 100%;
+}
+
+.Flex.Wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
