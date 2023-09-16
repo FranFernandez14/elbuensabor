@@ -1,6 +1,5 @@
 import TitleBar from "../Components/TitleBar/TitleBar"
 import Content from "../Components/Content/Content";
-import React from "react";
 import Button from "../Components/Button/Button";
 import { ButtonColor } from "../Components/Button/ButtonColor";
 import { ButtonWidth } from "../Components/Button/ButtonWidth";
@@ -13,7 +12,6 @@ import { FlexDirection } from "../Components/Flex/FlexDirection";
 import Footer from "../Components/Footer/Footer";
 
 export default function MisDatos(){
-    //<TitleBar userid="0"/>
     return (
         <>
             <TitleBar userid={0}/>
@@ -36,7 +34,7 @@ export default function MisDatos(){
  
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                         <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Atrás</Button>
-                        <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Modificar</Button>
+                        <Button click={()=>{window.location.href="ModificarMisDatos"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Modificar</Button>
                     </Flex>
                 </ContentBox>
             </Content>

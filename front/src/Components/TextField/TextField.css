@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+.TextField {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.TextField>* {
+    padding: 5px;
+    font-family: League Gothic;
+    font-weight: 400;
+    border-radius: 4px;
+    background: #F1E8E6;
+    color: rgb(53, 29, 49);
+    font-size: 30px;
+    outline: none;
+    border-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.TextField>textarea {
+    text-align: left;
+    resize: none;
+}
+
+.TextField>*::selection{
+    color: #F1E8E6;
+    background-color: rgba(53, 29, 49, 0.95);
+}

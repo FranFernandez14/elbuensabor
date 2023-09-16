@@ -6,7 +6,8 @@ export default function Text(
     props : {
         fontSize : TextSize | undefined, 
         link : string | null,
-        children : React.ReactNode
+        children : React.ReactNode,
+        underline ?: boolean
     }
     ) {
 
@@ -35,7 +36,7 @@ export default function Text(
         }>
             <div>
                 {!(props.link === null) ? (
-                    <a className="Link" href={props.link}>   
+                    <a className={"Link " + ((typeof props.underline !== "undefined" && !props.underline) ? "NotUnderlined" : "")} href={props.link}>   
                         {props.children}
                     </a>
                 ) : (

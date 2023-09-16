@@ -23,6 +23,7 @@
 
 .bg>div {
   background-image: url("bg.jpg");
+  filter: brightness(0.6);
   background-size: cover;
   background-position: center;
   width: 100%;

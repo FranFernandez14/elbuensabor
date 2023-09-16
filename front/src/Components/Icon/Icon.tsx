@@ -4,7 +4,7 @@ import { IconSize } from "./IconSize";
 export default function Icon(
     props : {
         size : IconSize | undefined,
-        click : () => void | undefined,
+        click ?: () => void | undefined,
         src : string
     }
     ) {

@@ -7,9 +7,21 @@ Formatea texto y permite convertirlo en enlaces.
 Propiedades:
 
 * fontSize (TextSize.BIG | TextSize.MEDIUM | TextSize.SMALL): establece el tamaño del texto
-* link (string | null): De ser null, el texto no es un enlace. Caso contrario, debe ser la url a la que redirigir.
+* link (string | null): De ser null, el texto no es un enlace. Caso contrario, debe ser la url a la que redirigir
+* underlined (boolean): Si hay un link y underlined es false, no se mostrará al link subrayado. Caso contrario, si se lo hará
 
 Este componente tiene contenido.
+
+
+## TextField
+
+Genera un campo de texto.
+
+Propiedades:
+
+* placeholder: string a mostrar cuando el campo está vacío
+* type (TextFieldType.SINGLELINE | TextFieldType.MULTILINE | TextFieldType.PASSWORD): determina el tipo de campo de texto: de una sola línea (SINGLELINE), de múltiples líneas (MULTILINE) o de contraseña (PASSWORD)
+* rows: cantidad de filas (solo aplicable con un campo multilínea)
 
 
 ## Button
@@ -72,3 +84,6 @@ Propiedades:
 
 Este componente tiene contenido.
 
+## Footer
+
+Genera el footer.
