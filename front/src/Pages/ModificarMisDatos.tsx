@@ -12,6 +12,10 @@ import { FlexDirection } from "../Components/Flex/FlexDirection";
 import Footer from "../Components/Footer/Footer";
 import TextField from "../Components/TextField/TextField";
 import { TextFieldType } from "../Components/TextField/TextFieldType";
+import ComboBox from "../Components/ComboBox/ComboBox";
+import ComboBoxItem from "../Components/ComboBox/ComboBoxItem";
+import Icon from "../Components/Icon/Icon";
+import { IconSize } from "../Components/Icon/IconSize";
 
 export default function ModificarMisDatos(){
     return (
@@ -36,6 +40,15 @@ export default function ModificarMisDatos(){
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
                         <Text fontSize={TextSize.SMALL} link={null}>Dirección</Text>
                         <TextField placeholder={""} type={TextFieldType.SINGLELINE}/>
+                        <ComboBox placeholder="Departamento">
+                            <ComboBoxItem id={1}>Mendoza</ComboBoxItem>
+                            <ComboBoxItem id={2}>Godoy Cruz</ComboBoxItem>
+                            <ComboBoxItem id={3}>Maipú</ComboBoxItem>
+                            <ComboBoxItem id={4}>Guaymallén</ComboBoxItem>
+                            <ComboBoxItem id={5}>Las Heras</ComboBoxItem>
+                            <ComboBoxItem id={6}>San Martín</ComboBoxItem>
+                            <ComboBoxItem id={7}>Lavalle</ComboBoxItem>
+                        </ComboBox>
                     </Flex>
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
                         <Text fontSize={TextSize.SMALL} link={null}>Contraseña</Text>

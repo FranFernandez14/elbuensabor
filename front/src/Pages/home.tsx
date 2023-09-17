@@ -13,7 +13,7 @@ export default function Home(){
             <TitleBar userid={undefined}/>
             
             <Content>
-                <Button click={()=>{}} fontSize={TextSize.MEDIUM} width={ButtonWidth.HUG} color={ButtonColor.DARK}>Ver Carta</Button>
+                <Button click={()=>{window.location.href="carta";}} fontSize={TextSize.MEDIUM} width={ButtonWidth.HUG} color={ButtonColor.DARK}>Ver Carta</Button>
             </Content>
 
             <Footer/>

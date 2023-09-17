@@ -49,6 +49,34 @@ Propiedades:
 * click: función a ejecutar al hacer click en el ícono
 
 
+## ComboBox
+
+Genera una lista desplegable.
+
+Atributos:
+
+* placeholder: string con texto a mostrar cuando no se ha seleccionado ninguna opción.
+
+Debe contener ComboBoxItems.
+
+## ComboBoxItem
+
+
+Genera un elemento seleccionable dentro de un ComboBox.
+
+Atributos:
+
+* id: número que permite identificar al item seleccionado. No debería existir múltiples ComboBoxItems con la misma id dentro del mismo ComboBox
+* select: función a ejecutar al seleccionar un ComboBoxItem. Se asigna automáticamente dentro de un ComboBox, se la debe ignorar
+
+Este componente tiene contenido.
+
+## Google
+
+Genera el botón "Continuar con Google" para administrar las cuentas de los usuarios
+
+
+
 ## TitleBar
 
 Genera la barra superior. Varía según el rol del usuario.

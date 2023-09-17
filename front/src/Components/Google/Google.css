@@ -1,0 +1,30 @@
+.Google {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    background-color: #F1E8E6;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Google:hover {
+    filter: brightness(1.3);
+}
+
+.Google:active {
+    filter: brightness(0.7);
+}
+
+.Google>div:last-child {
+    font-family: League Gothic;
+    font-weight: 400;
+    font-size: 30px;
+    color: rgb(53, 29, 49);
+    flex-grow: 1;
+    text-align: center;
+    user-select: none
+}

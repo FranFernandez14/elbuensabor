@@ -4,7 +4,7 @@ import { TextSize } from "../Text/TextSize"
 import Icon from "../Icon/Icon"
 import { IconSize } from "../Icon/IconSize"
 
-export default function TitleBar(props : {userid : number | undefined}) {
+export default function TitleBar(props : {userid ?: number | undefined}) {
 
     let right = (
         <div>

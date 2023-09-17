@@ -33,7 +33,8 @@ export default function Icon(
             <div onClick={props.click} className={!(props.click === undefined) ? "Clickable" : ""}style={
                 {
                     backgroundImage: `url(${props.src})`,
-                    height: fs
+                    height: fs,
+                    width: fs
                 }
             }></div>
         </div>

@@ -15,10 +15,10 @@ import { TextFieldType } from "../Components/TextField/TextFieldType";
 import Hr from "../Components/Hr/Hr";
 import Google from "../Components/Google/Google";
 
-export default function Login(){
+export default function Register(){
     return (
         <>
-            <TitleBar userid={undefined}/>
+            <TitleBar/>
             
             <Content>
                 <div style={
@@ -29,12 +29,12 @@ export default function Login(){
                         justifyContent: "center",
                         alignItems: "center",
                         gap: "12px",
-                        maxHeight: "100%"
+                        maxHeight: "100%",
                     }
                 }>
                     <ContentBox width={100}>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <Text fontSize={TextSize.MEDIUM} link={null}>Iniciar sesión</Text>
+                            <Text fontSize={TextSize.MEDIUM} link={null}>Registrarse</Text>
                         </Flex>
 
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
@@ -44,10 +44,24 @@ export default function Login(){
                         <Hr/>
 
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                            <TextField placeholder={"Nombre"} type={TextFieldType.SINGLELINE}/>
+                            <TextField placeholder={"Apellido"} type={TextFieldType.SINGLELINE}/>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                            <TextField placeholder={"Teléfono"} type={TextFieldType.SINGLELINE}/>
+                            <TextField placeholder={"Departamento"} type={TextFieldType.SINGLELINE}/>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                            <TextField placeholder={"Dirección"} type={TextFieldType.SINGLELINE}/>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <TextField placeholder={"Correo"} type={TextFieldType.SINGLELINE}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <TextField placeholder={"Contraseña"} type={TextFieldType.PASSWORD}/>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                            <TextField placeholder={"Repetir Contraseña"} type={TextFieldType.PASSWORD}/>
                         </Flex>
     
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
@@ -58,8 +72,8 @@ export default function Login(){
                         
                     </ContentBox>
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                        <Text fontSize={TextSize.SMALLER} link={null}>¿No tiene cuenta?</Text>
-                        <Text fontSize={TextSize.SMALLER} link={"register"}>REGISTRARSE</Text>
+                        <Text fontSize={TextSize.SMALLER} link={null}>¿Ya está registrado?</Text>
+                        <Text fontSize={TextSize.SMALLER} link={"login"}>Iniciar Sesión</Text>
                     </Flex>
                 </div>
             </Content>
