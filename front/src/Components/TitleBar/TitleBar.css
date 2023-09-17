@@ -9,6 +9,7 @@
     justify-content: space-between;
     padding: 0 20px;
     box-sizing: border-box;
+    z-index: 2;
 }
 
 .TitleBar>div:first-child {
@@ -22,4 +23,20 @@
     flex-grow: 2;
     justify-content: flex-end;
     gap: 20px;
+}
+
+.TitleBar .TitleBarMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(53, 29, 49, 0.95);
+    padding: 12px;
+    border-bottom-left-radius: 12px;
+    width: fit-content;
+    transition: transform 200ms, opacity 100ms;
+    box-sizing: border-box;
+}
+
+.TitleBar .TitleBarMenu .Text {
+    align-items: flex-end;
 }

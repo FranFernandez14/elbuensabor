@@ -14,8 +14,6 @@ import TextField from "../Components/TextField/TextField";
 import { TextFieldType } from "../Components/TextField/TextFieldType";
 import ComboBox from "../Components/ComboBox/ComboBox";
 import ComboBoxItem from "../Components/ComboBox/ComboBoxItem";
-import Icon from "../Components/Icon/Icon";
-import { IconSize } from "../Components/Icon/IconSize";
 
 export default function ModificarMisDatos(){
     return (
