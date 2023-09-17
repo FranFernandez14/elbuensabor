@@ -1,5 +1,5 @@
 .App {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
@@ -8,9 +8,15 @@
 }
 
 
+@media not ((min-height: 650px) and (min-width: 650px)) {
+  .App {
+    overflow-y: auto;
+  }
 
-
-
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+}
 
 .bg {
   width: 100%;
@@ -36,6 +42,10 @@
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
 }
 
 /* Track */

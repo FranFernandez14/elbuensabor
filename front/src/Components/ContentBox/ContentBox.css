@@ -8,4 +8,24 @@
     gap: 12px;
     max-height: 100%;
     overflow-y: auto;
+    box-sizing: border-box;
+}
+
+@media (min-height: 650px) and (min-width: 1000px) {
+    .ContentBox {
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(149, 106, 146, 0.26);
+        gap: 12px;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+}
+
+@media not ((min-height: 650px) and (min-width: 1000px)) {
+    .ContentBox {
+        width: 100% !important;
+    }
 }

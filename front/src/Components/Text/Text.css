@@ -27,3 +27,40 @@ a.Link {
 a.Link.NotUnderlined {
     text-decoration: none;
 }
+
+.Text.big {
+    font-size: 50px;
+}
+
+.Text.medium {
+    font-size: 30px;
+}
+
+.Text.small {
+    font-size: 20px;
+}
+
+.Text.smaller {
+    font-size: 20px;
+}
+
+
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .Text.big {
+        font-size: 75px;
+    }
+    
+    .Text.medium {
+        font-size: 50px;
+    }
+    
+    .Text.small {
+        font-size: 30px;
+    }
+    
+    .Text.smaller {
+        font-size: 20px;
+    }
+    
+}

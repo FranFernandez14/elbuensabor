@@ -17,7 +17,7 @@
     border-radius: 4px;
     background: #F1E8E6;
     color: rgb(53, 29, 49);
-    font-size: 30px;
+    font-size: 20px;
     outline: none;
     border-width: 0;
     width: 100%;
@@ -27,6 +27,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .ComboBox .ComboBoxHead {
+        font-size: 30px;
+    }
 }
 
 .ComboBox .Icon {

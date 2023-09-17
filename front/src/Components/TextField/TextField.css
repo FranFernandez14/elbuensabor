@@ -5,7 +5,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     flex-grow: 1;
 }
 
@@ -16,12 +15,18 @@
     border-radius: 4px;
     background: #F1E8E6;
     color: rgb(53, 29, 49);
-    font-size: 30px;
+    font-size: 20px;
     outline: none;
     border-width: 0;
     width: 100%;
     box-sizing: border-box;
     text-align: center;
+}
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .TextField>* {
+        font-size: 30px;
+    }
 }
 
 .TextField>textarea {
@@ -33,3 +38,4 @@
     color: #F1E8E6;
     background-color: rgba(53, 29, 49, 0.95);
 }
+

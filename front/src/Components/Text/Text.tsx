@@ -14,26 +14,22 @@ export default function Text(
     let fs = "60px";
     switch(props.fontSize) {
         case TextSize.BIG:
-            fs = "75px";
+            fs = "big";
             break;
         case TextSize.MEDIUM:
-            fs = "50px";
+            fs = "medium";
             break;
         case TextSize.SMALLER:
-            fs = "20px";
+            fs = "smaller";
             break;
         case TextSize.SMALL:
         default:
-            fs = "30px";
+            fs = "small";
 
     }
 
     return (
-        <div className={"Text " + (!(props.link === null) ? "Link" : "")} style={
-            {
-                fontSize: fs
-            }
-        }>
+        <div className={"Text " + (!(props.link === null) ? "Link " : " ") + fs}>
             <div>
                 {!(props.link === null) ? (
                     <a className={"Link " + ((typeof props.underline !== "undefined" && !props.underline) ? "NotUnderlined" : "")} href={props.link}>   

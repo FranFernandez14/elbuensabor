@@ -12,29 +12,27 @@ export default function Icon(
     let fs = "60px";
     switch(props.size) {
         case IconSize.BIG:
-            fs = "75px";
+            fs = "big";
             break;
         case IconSize.MEDIUM:
-            fs = "50px";
+            fs = "medium";
             break;
         case IconSize.SMALL:
-            fs = "30px";
+            fs = "small";
             break;
         case IconSize.SMALLER:
-            fs = "20px";
+            fs = "smaller";
             break;    
         case IconSize.DEFAULT:
         default:
-            fs = "100%";
+            fs = "default";
     }
 
     return (
         <div className="Icon">
-            <div onClick={props.click} className={!(props.click === undefined) ? "Clickable" : ""}style={
+            <div onClick={props.click} className={(!(props.click === undefined) ? "Clickable " : " ") + fs}style={
                 {
-                    backgroundImage: `url(${props.src})`,
-                    height: fs,
-                    width: fs
+                    backgroundImage: `url(${props.src})`
                 }
             }></div>
         </div>

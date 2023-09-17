@@ -21,7 +21,7 @@ export default function Login(){
             <TitleBar userid={undefined}/>
             
             <Content>
-                <div style={
+                <div className="customContentBox" style={
                     {
                         width: "30%",
                         display: "flex",

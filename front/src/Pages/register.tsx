@@ -21,7 +21,7 @@ export default function Register(){
             <TitleBar/>
             
             <Content>
-                <div style={
+                <div className="customContentBox" style={
                     {
                         width: "30%",
                         display: "flex",
@@ -30,6 +30,7 @@ export default function Register(){
                         alignItems: "center",
                         gap: "12px",
                         maxHeight: "100%",
+                        boxSizing: "border-box"
                     }
                 }>
                     <ContentBox width={100}>

@@ -22,9 +22,15 @@
 .Google>div:last-child {
     font-family: League Gothic;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 20px;
     color: rgb(53, 29, 49);
     flex-grow: 1;
     text-align: center;
     user-select: none
+}
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .Google>div:last-child {
+        font-size: 30px;
+    }
 }
