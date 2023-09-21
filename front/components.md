@@ -55,7 +55,8 @@ Genera una lista desplegable.
 
 Atributos:
 
-* placeholder: string con texto a mostrar cuando no se ha seleccionado ninguna opción.
+* placeholder: string con texto a mostrar cuando no se ha seleccionado ninguna opción
+* change: función que toma un número y no devuelve nada, ejecutada cada vez que se cambia el item seleccionado pasándole como argumento la id del mismo
 
 Debe contener ComboBoxItems.
 

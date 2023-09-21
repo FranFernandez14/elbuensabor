@@ -7,10 +7,9 @@ import { TextSize } from "../Components/Text/TextSize";
 import Footer from "../Components/Footer/Footer";
 
 export default function Home(){
-    //<TitleBar userid="0"/>
     return (
         <>
-            <TitleBar userid={undefined}/>
+            <TitleBar/>
             
             <Content>
                 <Button click={()=>{window.location.href="carta";}} fontSize={TextSize.MEDIUM} width={ButtonWidth.HUG} color={ButtonColor.DARK}>Ver Carta</Button>

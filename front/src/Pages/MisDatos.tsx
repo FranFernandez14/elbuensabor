@@ -12,6 +12,7 @@ import { FlexDirection } from "../Components/Flex/FlexDirection";
 import Footer from "../Components/Footer/Footer";
 
 export default function MisDatos(){
+
     return (
         <>
             <TitleBar userid={0}/>

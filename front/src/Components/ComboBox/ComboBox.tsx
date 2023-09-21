@@ -6,7 +6,8 @@ import "./ComboBox.css"
 export default function ComboBox(
     props: {
         children: React.ReactNode,
-        placeholder ?: string
+        placeholder ?: string,
+        change ?: (id: number) => void
     }
 ) {
 
@@ -25,6 +26,9 @@ export default function ComboBox(
 
     function select(e : React.ReactNode, id : number) {
         setSelected({element : e, id : id});
+        if(props.change !== undefined) {
+            props.change(id);
+        }
         setOpen(false);
     }
 

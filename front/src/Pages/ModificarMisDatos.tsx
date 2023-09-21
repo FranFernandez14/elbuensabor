@@ -38,7 +38,7 @@ export default function ModificarMisDatos(){
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
                         <Text fontSize={TextSize.SMALL} link={null}>Dirección</Text>
                         <TextField placeholder={""} type={TextFieldType.SINGLELINE}/>
-                        <ComboBox placeholder="Departamento">
+                        <ComboBox placeholder="Departamento" change={(id: number) => {alert(id);}}>
                             <ComboBoxItem id={1}>Mendoza</ComboBoxItem>
                             <ComboBoxItem id={2}>Godoy Cruz</ComboBoxItem>
                             <ComboBoxItem id={3}>Maipú</ComboBoxItem>
