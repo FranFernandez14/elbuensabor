@@ -1,0 +1,46 @@
+.Search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Search>div {
+    flex-shrink: 1;
+    padding: 5px;
+    border-radius: 4px;
+    background: #F1E8E6;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.Search input[type=text] {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+    font-family: League Gothic;
+    font-weight: 400;
+    color: rgb(53, 29, 49);
+    font-size: 20px;
+    outline: none;
+    border-width: 0;
+    box-sizing: border-box;
+    text-align: center;
+    text-align: left;
+    background-color: transparent;
+}
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .Search input[type=text] {
+        font-size: 30px;
+    }
+}
+
+.Search input[type=text]::selection{
+    color: #F1E8E6;
+    background-color: rgba(53, 29, 49, 0.95);
+}

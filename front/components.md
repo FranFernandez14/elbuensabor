@@ -73,6 +73,19 @@ Atributos:
 
 Este componente tiene contenido.
 
+
+## Search
+
+Genera una barra de búsqueda.
+
+Atributos:
+
+* value: valor por defecto a mostrar
+* placeholder: texto a mostrar cuando no haya ningún valor
+* width (number): ancho del componente, relativo al ancho del padre. Si no se especifica, es 100
+* action: función que toma como argumento una cadena. Al hacer click en el ícono de la lupa o presionar enter, se llamará a esta función pasándole el valor del campo
+
+
 ## Google
 
 Genera el botón "Continuar con Google" para administrar las cuentas de los usuarios
