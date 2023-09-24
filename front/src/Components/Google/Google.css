@@ -9,6 +9,7 @@
     padding: 5px;
     border-radius: 4px;
     cursor: pointer;
+    position: relative;
 }
 
 .Google:hover {
@@ -17,6 +18,13 @@
 
 .Google:active {
     filter: brightness(0.7);
+}
+
+.Google>.Icon {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .Google>div:last-child {

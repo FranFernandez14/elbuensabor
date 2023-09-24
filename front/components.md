@@ -9,6 +9,7 @@ Propiedades:
 * fontSize (TextSize.BIG | TextSize.MEDIUM | TextSize.SMALL): establece el tamaño del texto
 * link (string | null): De ser null, el texto no es un enlace. Caso contrario, debe ser la url a la que redirigir
 * underlined (boolean): Si hay un link y underlined es false, no se mostrará al link subrayado. Caso contrario, si se lo hará
+* color (TextColor.DEFAULT | TextColor.LIGHTER | TextColor.LIGHT | TextColor.DARK | TextColor.ALT): establece el color del texto
 
 Este componente tiene contenido.
 
