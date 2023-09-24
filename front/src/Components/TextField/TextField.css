@@ -39,3 +39,6 @@
     background-color: rgba(53, 29, 49, 0.95);
 }
 
+.TextField>.invalid {
+    outline: 4px solid #f55951;
+}

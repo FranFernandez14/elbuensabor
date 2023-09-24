@@ -24,7 +24,8 @@ Propiedades:
 * type (TextFieldType.SINGLELINE | TextFieldType.MULTILINE | TextFieldType.PASSWORD): determina el tipo de campo de texto: de una sola línea (SINGLELINE), de múltiples líneas (MULTILINE) o de contraseña (PASSWORD)
 * rows: cantidad de filas (solo aplicable con un campo multilínea)
 * value: valor mostrado por defecto en el TextField
-* setValue: función que toma como argumento un string y no devuelve nada, que es llamada cada vez que el usuario cambia el valor del campo con este nuevo valor de argumento. Puede ser un setter definido con un useState.
+* setValue: función que toma como argumento un string y no devuelve nada, que es llamada cada vez que el usuario cambia el valor del campo, pasándole el nuevo valor como argumento. Puede ser un setter definido con un useState
+* validate: función que toma como argumento un string y devuelve un booleano, que es llamada cada vez que el usuario cambia el valor del campo, pasándole el nuevo valor como argumento. Si devolviera false, se colocará un borde rojo al campo.
 
 
 ## Button
@@ -50,6 +51,18 @@ Propiedades:
 * size (IconSize.BIG | IconSize.MEDIUM | IconSize.SMALL | IconSize.DEFAULT): establece la altura del ícono. BIG, MEDIUM y SMALL son coincidentes con los valores posibles de fontSize de Text. DEFAULT hace que tome la mayor altura posible en el contenedor
 * src (string): cadena con la ruta de acceso a la imagen
 * click: función a ejecutar al hacer click en el ícono
+
+
+## Image
+
+Coloca una imagen.
+
+Propiedades:
+
+* src: ruta a la imagen
+* width: string con un valor de tamaño de css correspondiente al ancho
+* height: string con un valor de tamaño de css correspondiente al alto
+* shape (ImageShape.RECTANGLE | ImageShape.ROUNDED | ImageShape.ELLIPSE): establece la forma del borde de la imagen. RECTANGLE indica esquinas de 90°, ROUNDED redondea levemente las esquinas y ELLIPSE redondea las esquinas lo más posible. Si width fuera igual a height, ELLIPSE hace que la imagen sea un círculo.
 
 
 ## ComboBox
