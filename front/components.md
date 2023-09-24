@@ -23,6 +23,8 @@ Propiedades:
 * placeholder: string a mostrar cuando el campo está vacío
 * type (TextFieldType.SINGLELINE | TextFieldType.MULTILINE | TextFieldType.PASSWORD): determina el tipo de campo de texto: de una sola línea (SINGLELINE), de múltiples líneas (MULTILINE) o de contraseña (PASSWORD)
 * rows: cantidad de filas (solo aplicable con un campo multilínea)
+* value: valor mostrado por defecto en el TextField
+* setValue: función que toma como argumento un string y no devuelve nada, que es llamada cada vez que el usuario cambia el valor del campo con este nuevo valor de argumento. Puede ser un setter definido con un useState.
 
 
 ## Button
