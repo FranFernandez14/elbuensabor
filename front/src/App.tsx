@@ -5,6 +5,7 @@ import MisDatos from './Pages/MisDatos';
 import ModificarMisDatos from './Pages/ModificarMisDatos';
 import Login from './Pages/login';
 import Register from './Pages/register';
+import PedidosCajero from './Pages/PedidosCajero';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/MisDatos' element={<MisDatos />} />
+                <Route path='/PedidosCajero' element={<PedidosCajero />} />
                 <Route path='/ModificarMisDatos' element={<ModificarMisDatos />} />
             </Routes>
         </Router>

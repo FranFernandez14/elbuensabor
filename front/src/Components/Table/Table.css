@@ -1,0 +1,50 @@
+.Table {
+    margin: 0 auto;
+    color: #F1E8E6;
+    font-family: League Gothic;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.Table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Table th {
+    font-weight: 400;
+}
+
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .Table {
+        font-size: 30px;
+    }
+    
+}
+
+
+.Table.solidTable {
+    background-color: rgb(53, 29, 49);
+    border-radius: 12px;
+}
+
+.Table.solidTable th, .Table.solidTable td {
+    border: 1px solid #F1E8E6;
+}
+
+.Table.solidTable th:first-child, .Table.solidTable td:first-child {
+    border-left-width: 0;
+}
+
+.Table.solidTable th:last-child, .Table.solidTable td:last-child {
+    border-right-width: 0;
+}
+
+.Table.solidTable tr:first-child>th, .Table.solidTable tr:first-child>td {
+    border-top-width: 0;
+}
+
+.Table.solidTable tr:last-child>td {
+    border-bottom-width: 0;
+}

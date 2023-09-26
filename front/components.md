@@ -117,7 +117,6 @@ Atributos:
 Genera el botón "Continuar con Google" para administrar las cuentas de los usuarios
 
 
-
 ## TitleBar
 
 Genera la barra superior. Varía según el rol del usuario.
@@ -126,11 +125,13 @@ Propiedades:
 
 * userid (bigint | undefined): De ser undefined, muestra las opciones para iniciar sesión y registrarse. Si no, busca los datos del usuario cuya id es userid y le ofrece las opciones que le corresponden.
 
+
 ## Content
 
 Genera el contenedor principal a ser usado en la mayoría de las páginas.
 
 Este componente tiene contenido, el cual es mostrado uno al lado del otro.
+
 
 ## ContentBox
 
@@ -142,6 +143,7 @@ Propiedades:
 
 Este componente tiene contenido.
 
+
 ## Flex
 
 Genera un contenedor para facilitar la organización del contenido.
@@ -152,6 +154,20 @@ Propiedades:
 * align (FlexAlign.START | FlexAlign.CENTER | FlexAlign.END | FlexAlign.EXTREMES): establece cómo se alinearán los contenidos dentro del contenedor: si desde la izquierda o arriba (START), desde la derecha o abajo (END), en el centro (CENTER) o lo más separados posibles (en los extremos) (EXTREMES)
 
 Este componente tiene contenido.
+
+
+## Table
+
+Genera una tabla personalizada.
+
+Propiedades:
+
+* width: número entre 0 y 100, para definir el ancho como un porcentaje del ancho del padre
+* style (TableStyle.DEFAULT | TableStyle.SEAMLESS | TableStyle.SOLID): define ciertos estilos para la tabla. DEFAULT y SEAMLESS son equivalentes: generan una tabla sin fondo ni bordes de celdas. SOLID le coloca un fondo oscuro y bordes blancos a las celdas
+* scrollable: booleano que indica si la tabla genera scrollbars cuando de otro modo tendría un overflow
+
+El contenido de este componente es el mismo que el de un elemento HTML <table>, lo único que cambia son los estilos.
+
 
 ## Footer
 
