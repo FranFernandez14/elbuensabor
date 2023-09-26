@@ -1,0 +1,39 @@
+.CheckBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.CheckBox>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.CheckBox>div:hover {
+    filter: brightness(1.3);
+}
+
+.CheckBox>div:active {
+    filter: brightness(0.7);
+}
+
+.CheckBox .CheckBoxBox {
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: contain;
+}
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .CheckBox .CheckBoxBox {
+        width: 30px;
+        height: 30px;
+    }
+    
+}

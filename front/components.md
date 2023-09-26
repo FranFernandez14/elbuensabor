@@ -101,6 +101,17 @@ Atributos:
 * action: función que toma como argumento una cadena. Al hacer click en el ícono de la lupa o presionar enter, se llamará a esta función pasándole el valor del campo
 
 
+## CheckBox
+
+Genera una caja que se puede marcar y desmarcar.
+
+Atributos:
+
+* label: string que se mostrará a la derecha de la caja
+* value: booleano que determina el estado inicial del checkbox
+* setValue: función que toma un booleano como argumento y es llamada siempre que el valor cambia
+
+
 ## Google
 
 Genera el botón "Continuar con Google" para administrar las cuentas de los usuarios
