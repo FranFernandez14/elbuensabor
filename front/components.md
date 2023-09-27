@@ -112,6 +112,13 @@ Atributos:
 * setValue: función que toma un booleano como argumento y es llamada siempre que el valor cambia
 
 
+## DateRangePicker
+
+Genera un diálogo para seleccionar un rango de fechas. De la librería RSuite.
+
+[Detalles](./src/Components/DateRangePicker/README.md)
+
+
 ## Google
 
 Genera el botón "Continuar con Google" para administrar las cuentas de los usuarios

@@ -6,6 +6,7 @@ import ModificarMisDatos from './Pages/ModificarMisDatos';
 import Login from './Pages/login';
 import Register from './Pages/register';
 import PedidosCajero from './Pages/PedidosCajero';
+import ProductosMasVendidos from './Pages/ProductosMasVendidos';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
                 <Route path='/MisDatos' element={<MisDatos />} />
                 <Route path='/PedidosCajero' element={<PedidosCajero />} />
                 <Route path='/ModificarMisDatos' element={<ModificarMisDatos />} />
+                <Route path='/ProductosMasVendidos' element={<ProductosMasVendidos />} />
             </Routes>
         </Router>
     </div>

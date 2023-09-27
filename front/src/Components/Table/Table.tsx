@@ -9,12 +9,6 @@ export default function Table(
         scrollable ?: boolean
     }
 ) {
-
-    const style = {
-        width: props.width !== undefined ? props.width + "%" : "auto",
-        "overflow-y": (props.scrollable !== undefined && props.scrollable === true) ? "auto" : "default"
-    }
-
     let ts = "seamlessTable";
 
     switch (props.style) {
@@ -29,7 +23,10 @@ export default function Table(
     }
     
     return (
-        <div className={"Table " + ts} style={style}>
+        <div className={"Table " + ts} style={{
+            width: props.width !== undefined ? props.width + "%" : "auto",
+            overflowY: (props.scrollable !== undefined && props.scrollable === true) ? "auto" : "visible"
+        }}>
             <table>
                 {props.children}
             </table>
