@@ -1,0 +1,30 @@
+package com.utn.elbuensabor.entities.productos;
+
+import com.utn.elbuensabor.entities.Base;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.antlr.v4.runtime.misc.NotNull;
+
+import java.util.List;
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Rubro extends Base {
+
+    @ManyToOne()
+    @JoinColumn(name = "id_rubro_padre")
+    private Rubro rubroProductoPadre;
+
+    @OneToMany(mappedBy = "rubroPadre")
+    private List<Rubro> subRubro;
+
+    @NotNull
+    private String denominacion;
+
+}
