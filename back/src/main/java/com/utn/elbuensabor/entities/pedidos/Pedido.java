@@ -4,7 +4,6 @@ import com.utn.elbuensabor.entities.Base;
 import com.utn.elbuensabor.entities.enums.EstadoPedido;
 import com.utn.elbuensabor.entities.enums.FormaPago;
 import com.utn.elbuensabor.entities.enums.TipoEnvio;
-import com.utn.elbuensabor.entities.usuarios.Cliente;
 import com.utn.elbuensabor.entities.usuarios.Domicilio;
 import jakarta.persistence.*;
 
@@ -15,7 +14,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
 
-import java.awt.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -70,7 +68,7 @@ public class Pedido extends Base {
 
     @NotNull
     @ManyToOne()
-    @JoinColumn(name = "id_cliente")
+    @JoinColumn(name = "id_usuario")
     private Cliente cliente;
 
 }

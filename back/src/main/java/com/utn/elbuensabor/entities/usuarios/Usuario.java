@@ -1,6 +1,7 @@
 package com.utn.elbuensabor.entities.usuarios;
 
 import com.utn.elbuensabor.entities.Base;
+import com.utn.elbuensabor.entities.enums.Rol;
 import com.utn.elbuensabor.entities.pedidos.Pedido;
 import jakarta.persistence.*;
 
@@ -23,16 +24,17 @@ import java.util.List;
 public class Usuario extends Base {
 
     @NotNull
-    @Column(name = "auth0_id", nullable = false, unique = true)
-    private String auth0Id;
-
-    @NotNull
     @Column(name = "email", nullable = false)
     private String email;
 
     @NotNull
     @Column(name = "password", nullable = false)
     private String password;
+
+    @NotNull
+    @Column(name="rol")
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
 
     @NotNull
     @Column(name = "nombre", nullable = false)
@@ -45,8 +47,10 @@ public class Usuario extends Base {
     @Column(name = "telefono", nullable = false)
     private String telefono;
 
-    @OneToMany (mappedBy = "id_cliente", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "id_usuario", cascade = CascadeType.ALL)
     private List<Domicilio> domicilios = new ArrayList<>();
 
+    @OneToMany (mappedBy = "id_usuario", cascade = CascadeType.ALL)
+    private List<Pedido> pedidos = new ArrayList<>();
 
 }

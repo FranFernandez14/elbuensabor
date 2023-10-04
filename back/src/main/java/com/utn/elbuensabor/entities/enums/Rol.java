@@ -1,8 +1,9 @@
 package com.utn.elbuensabor.entities.enums;
 
-public enum RolEmpleado {
+public enum Rol {
     ADMINISTRADOR,
     COCINERO,
     DELIVERY,
-    CAJERO
+    CAJERO,
+    CLIENTE
 }

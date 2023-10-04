@@ -10,7 +10,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
