@@ -3,10 +3,7 @@ package com.utn.elbuensabor.entities.usuarios;
 import com.utn.elbuensabor.entities.Base;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 
@@ -16,6 +13,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Domicilio extends Base {
 
     @NotNull

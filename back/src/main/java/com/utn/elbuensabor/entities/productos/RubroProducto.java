@@ -4,10 +4,7 @@ import com.utn.elbuensabor.entities.Base;
 import com.utn.elbuensabor.entities.enums.TipoRubro;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.*;
 

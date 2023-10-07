@@ -3,10 +3,7 @@ package com.utn.elbuensabor.entities.pedidos;
 import com.utn.elbuensabor.entities.Base;
 import com.utn.elbuensabor.entities.enums.EstadoPedido;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.NotFound;
 
@@ -18,6 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class PedidoEstado extends Base {
 
     @NotNull

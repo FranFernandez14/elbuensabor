@@ -5,10 +5,7 @@ import com.utn.elbuensabor.entities.enums.Rol;
 import com.utn.elbuensabor.entities.pedidos.Pedido;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.ArrayList;
@@ -20,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 @Table(name = "usuario")
 public class Usuario extends Base {
 

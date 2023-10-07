@@ -14,6 +14,7 @@ import java.util.*;
 @Getter
 @Setter
 @ToString
+@Builder
 public class Producto extends Base {
 
     @NotNull

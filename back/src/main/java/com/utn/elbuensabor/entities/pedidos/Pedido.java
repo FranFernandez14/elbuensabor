@@ -5,16 +5,15 @@ import com.utn.elbuensabor.entities.enums.EstadoPedido;
 import com.utn.elbuensabor.entities.enums.FormaPago;
 import com.utn.elbuensabor.entities.enums.TipoEnvio;
 import com.utn.elbuensabor.entities.usuarios.Domicilio;
+import com.utn.elbuensabor.entities.usuarios.Usuario;
 import jakarta.persistence.*;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,6 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Pedido extends Base {
 
     @NotNull
@@ -35,7 +35,7 @@ public class Pedido extends Base {
     @NotNull
     @Column(name = "hora_estimada_finalizacion")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date horaEstimadaFinalizacion;
+    private LocalDateTime horaEstimadaFinalizacion;
 
     @NotNull
     @Column(name = "total", precision = 10, scale = 2)
@@ -69,6 +69,6 @@ public class Pedido extends Base {
     @NotNull
     @ManyToOne()
     @JoinColumn(name = "id_usuario")
-    private Cliente cliente;
+    private Usuario usuario;
 
 }
