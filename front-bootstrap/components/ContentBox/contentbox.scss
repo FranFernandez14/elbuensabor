@@ -1,0 +1,45 @@
+.ContentBox {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 12px;
+    background: rgba(149, 106, 146, 0.26);
+    gap: 12px;
+    max-height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.OuterContentBox {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    max-height: 100%;
+}
+
+.OuterContentBox .ContentBox {
+    width: 100%;
+}
+
+@media (min-height: 650px) and (min-width: 1000px) {
+    .ContentBox {
+        display: flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(149, 106, 146, 0.26);
+        gap: 12px;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+}
+
+@media not ((min-height: 650px) and (min-width: 1000px)) {
+    .ContentBox {
+        width: 100% !important;
+    }
+}

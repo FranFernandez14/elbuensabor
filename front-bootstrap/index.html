@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>El Buen Sabor</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div class="Content">
+            <div class="ContentBox" data-width="30">
+                <button class="btn btn-dark">Botón</button>
+                A
+            </div>
+
+            <div class="OuterContentBox" data-width="40">
+                <div class="ContentBox">
+
+                    <input type="text" class="form-control">
+
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            ComboBox
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Opción 1</a></li>
+                            <li><a class="dropdown-item" href="#">Opción 2</a></li>
+                            <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-warning text-light container-fluid">Botón</button>
+                </div>
+                <div class="mx-auto">
+                    Hola
+                </div>
+            </div>
+            
+        </div>
+
+        <script>
+            const TitleBar = {
+                userid: 0
+            }
+        </script>
+        <script src="bootstrap-5.3.2/dist/js/bootstrap.bundle.js"></script>
+        <script src="components/Background/background.js"></script>
+        <script src="components/TitleBar/titlebar.js"></script>
+        <script src="components/Footer/footer.js"></script>
+        <script src="components/ContentBox/contentbox.js"></script>
+    </body>
+</html>

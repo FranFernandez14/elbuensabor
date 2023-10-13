@@ -1,0 +1,57 @@
+.TitleBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 2;
+    position: relative;
+}
+
+@media (min-height: 650px) and (min-width: 650px) {
+    .TitleBar {
+        position: fixed;
+        top: 5%;
+        left: 0;
+    }
+    
+}
+
+.TitleBar>div:first-child {
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.TitleBar>div:last-child {
+    width: fit-content;
+    display: flex;
+    flex-grow: 2;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.TitleBar>div:last-child>div:first-child {
+    text-align: right;
+}
+
+.TitleBar>div:last-child>img {
+    cursor: pointer;
+}
+
+.TitleBar .TitleBarMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(53, 29, 49, 0.95);
+    padding: 12px;
+    border-bottom-left-radius: 12px;
+    width: fit-content;
+    transition: transform 200ms, opacity 100ms;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.TitleBar .TitleBarMenu .Text {
+    align-items: flex-end;
+}
