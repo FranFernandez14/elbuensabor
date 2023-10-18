@@ -12164,8 +12164,9 @@ html {
   padding: 0;
 }
 
-input[type=text].form-control, input[type=password].form-control, .dropdown-item, .dropdown-item:hover {
+input[type=text].form-control, input[type=password].form-control, .dropdown-item, .dropdown-item:hover, option {
   color: rgb(53, 29, 49);
+  background-color: #F1E8E6;
 }
 
 input[type=text].form-control::-moz-selection, input[type=password].form-control::-moz-selection {
@@ -12173,7 +12174,7 @@ input[type=text].form-control::-moz-selection, input[type=password].form-control
   background-color: rgb(53, 29, 49);
 }
 
-input[type=text].form-control::selection, input[type=password].form-control::selection {
+input[type=text].form-control::selection, input[type=password].form-control::selection, option:hover {
   color: #F1E8E6;
   background-color: rgb(53, 29, 49);
 }
@@ -12225,10 +12226,10 @@ input[type=text].form-control::selection, input[type=password].form-control::sel
 
 /* Placeholders */
 ::-moz-placeholder {
-  color: gray;
+  color: gray !important;
 }
 ::placeholder, .placeholder {
-  color: gray;
+  color: gray !important;
 }
 
 ::-moz-selection {

@@ -9,23 +9,23 @@ window.addEventListener("load", () => {
     tb.classList.add("text-light");
 
     tb.innerHTML = `
-        <h1>El Buen Sabor</h1>
+        <h1 onclick="window.location.href='/front-bootstrap/'" style="cursor:pointer;">El Buen Sabor</h1>
     `;
 
     if(TitleBar.userid === undefined) {
         tb.innerHTML += `
             <div>
-                <h2><a href="/front-bootstrap">Iniciar Sesión</a></h2>
-                <h2><a href="/front-bootstrap">Registrarse</a></h2>
+                <h2><a href="/front-bootstrap/pages/login.html">Iniciar Sesión</a></h2>
+                <h2><a href="/front-bootstrap/pages/registrarse.html">Registrarse</a></h2>
             </div>
         `;
     } else {
         tb.innerHTML += `
             <div>
                 <h2>Cosme Fulanito</h2>
-                <image id="TitleBarUserIcon" src="images/usericon.svg" class="rounded-circle">
+                <image id="TitleBarUserIcon" src="/front-bootstrap/images/usericon.svg" class="rounded-circle">
                 <div class="TitleBarMenu">
-                    <h5><a>Mi perfil</a></h5>
+                    <h5><a href="/front-bootstrap/pages/misDatos.html">Mi perfil</a></h5>
                     <h5><a>Historial de pedidos</a></h5>
                     <h5><a>Desconectarme</a></h5>
                 </div>
@@ -35,10 +35,13 @@ window.addEventListener("load", () => {
 
     document.body.prepend(tb);
 
-    document.getElementById("TitleBarUserIcon").addEventListener("click", () => {
-        titleBarMenuVisible = !titleBarMenuVisible;
-        let menu = tb.getElementsByClassName("TitleBarMenu")[0].style;
-        menu.transform = titleBarMenuVisible ? "translateX(0)" : "translateX(100%)";
-        menu.opacity = titleBarMenuVisible ? "1" : "0";
-    });
+    let userIcon = document.getElementById("TitleBarUserIcon");
+    if(userIcon !== null) {
+        userIcon.addEventListener("click", () => {
+            titleBarMenuVisible = !titleBarMenuVisible;
+            let menu = tb.getElementsByClassName("TitleBarMenu")[0].style;
+            menu.transform = titleBarMenuVisible ? "translateX(0)" : "translateX(100%)";
+            menu.opacity = titleBarMenuVisible ? "1" : "0";
+        });
+    }
 });

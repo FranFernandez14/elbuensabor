@@ -15,9 +15,9 @@ window.addEventListener("load", () => {
         </div>
         <div>
             Redes: 
-            <a href="https://www.twitter.com"><img src="images/twittericon.png"></a>
-            <a href="https://www.facebook.com"><img src="images/facebookicon.svg"></a>
-            <a href="https://www.instagram.com"><img src="images/instagramicon.png"></a>
+            <a href="https://www.twitter.com"><img src="/front-bootstrap/images/twittericon.png"></a>
+            <a href="https://www.facebook.com"><img src="/front-bootstrap/images/facebookicon.svg"></a>
+            <a href="https://www.instagram.com"><img src="/front-bootstrap/images/instagramicon.png"></a>
         </div>
     `;
 

@@ -51,12 +51,12 @@ body {
   }
   
   
-input[type=text].form-control, input[type=password].form-control, .dropdown-item, .dropdown-item:hover  {
+input[type=text].form-control, input[type=password].form-control, .dropdown-item, .dropdown-item:hover, option  {
   color: $dark;
-
+  background-color: $light;
   
 }
-input[type=text].form-control::selection, input[type=password].form-control::selection {
+input[type=text].form-control::selection, input[type=password].form-control::selection, option:hover {
   color: $light;
   background-color: $dark;
 }
@@ -64,6 +64,8 @@ input[type=text].form-control::selection, input[type=password].form-control::sel
 .dropdown-item {
   font-size: 20px;
 }
+
+$form-select-bg: $dark;
 
   ::-webkit-scrollbar {
     width: 12px;
@@ -116,7 +118,7 @@ input[type=text].form-control::selection, input[type=password].form-control::sel
   
   /* Placeholders */
   ::placeholder, .placeholder {
-    color: gray;
+    color: gray !important;
   }
 
   ::selection {
