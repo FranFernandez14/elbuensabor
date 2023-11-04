@@ -52,7 +52,7 @@ export default function Login(){
     
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <Button click={()=>{window.location.href="/";}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
-                            <Button click={()=>{window.location.href="carta";}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
+                            <Button click={()=>{window.location.href="/TestSeleccionarRol";}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
                         </Flex>
 
                         
