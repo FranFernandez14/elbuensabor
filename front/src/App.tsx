@@ -13,6 +13,7 @@ import { TextSize } from './Components/Text/TextSize';
 import { ButtonWidth } from './Components/Button/ButtonWidth';
 import { ButtonColor } from './Components/Button/ButtonColor';
 import RegistrarEmpleado from './Pages/RegistrarEmpleado';
+import AdministrarEmpleados from './Pages/AdministrarEmpleados';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
                 <Route path='/PedidosCajero' element={<PedidosCajero />} />
                 <Route path='/ModificarMisDatos' element={<ModificarMisDatos />} />
                 <Route path='/ProductosMasVendidos' element={<ProductosMasVendidos />} />
+                <Route path='/AdministrarEmpleados' element={<AdministrarEmpleados />} />
                 <Route path='/RegistrarEmpleado' element={<RegistrarEmpleado />} />
                 <Route path='/TestSeleccionarRol' element={
                   <Opciones>
@@ -58,7 +60,7 @@ export default function App() {
                 } />
                 <Route path='/OpcionesAdministrador' element={
                   <Opciones>
-                    <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Empleados</Button>
+                    <Button click={()=>{window.location.href = "/AdministrarEmpleados"}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Empleados</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Clientes</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Ver pedidos</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Rubros de Ingredientes</Button>
