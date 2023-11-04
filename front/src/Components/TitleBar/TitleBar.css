@@ -10,7 +10,7 @@
     position: relative;
 }
 
-@media (min-height: 650px) and (min-width: 650px) {
+@media (min-width: 576px) {
     .TitleBar {
         position: fixed;
         top: 5%;

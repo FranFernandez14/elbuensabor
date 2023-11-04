@@ -46,7 +46,7 @@ a.Link.NotUnderlined {
 
 
 
-@media (min-height: 650px) and (min-width: 650px) {
+@media (min-width: 576px) {
     .Text.big {
         font-size: 75px;
     }

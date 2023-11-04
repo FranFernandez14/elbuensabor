@@ -34,7 +34,7 @@
     background-color: transparent;
 }
 
-@media (min-height: 650px) and (min-width: 650px) {
+@media (min-width: 576px) {
     .Search input[type=text] {
         font-size: 30px;
     }

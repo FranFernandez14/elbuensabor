@@ -9,7 +9,7 @@
     flex-grow: 1;
 }  
 
-@media (min-height: 650px) and (min-width: 650px) {
+@media (min-width: 576px) {
     .Content {
         flex-direction: row;
         position: fixed;
@@ -21,12 +21,7 @@
     }    
 }
 
-@media (min-height: 650px) and (min-width: 1000px) {
-    .Content {
-    }
-}
-
-@media not ((min-height: 650px) and (min-width: 1000px)) {
+@media (max-width: 768px) {
     .Content>.customContentBox {
         width: 100% !important;
     }

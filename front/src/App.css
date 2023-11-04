@@ -8,7 +8,7 @@
 }
 
 
-@media not ((min-height: 650px) and (min-width: 650px)) {
+@media not ((min-width: 576px)) {
   .App {
     overflow-y: auto;
   }

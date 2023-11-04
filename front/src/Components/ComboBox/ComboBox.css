@@ -30,7 +30,7 @@
 }
 
 
-@media (min-height: 650px) and (min-width: 650px) {
+@media (min-width: 576px) {
     .ComboBox .ComboBoxHead {
         font-size: 30px;
     }

@@ -11,7 +11,7 @@
     
 }
 
-@media (min-height: 650px) and (min-width: 650px) {
+@media (min-width: 576px) {
     .Footer {
         position: fixed;
         left: 0;
