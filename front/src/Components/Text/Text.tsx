@@ -2,6 +2,8 @@ import React from "react";
 import "./Text.css"
 import { TextSize } from "./TextSize";
 import { TextColor } from "./TextColor";
+import { TextAlign } from "./TextAlign";
+import { Property } from "csstype";
 
 export default function Text(
     props : {
@@ -9,7 +11,8 @@ export default function Text(
         color ?: TextColor, 
         link ?: string | null,
         children : React.ReactNode,
-        underline ?: boolean
+        underline ?: boolean,
+        align ?: TextAlign
     }
     ) {
 
@@ -48,13 +51,30 @@ export default function Text(
             break;
     }
 
+    let a = "left";
+    switch(props.align) {
+        case TextAlign.LEFT:
+        default:
+            a = "left";
+            break;
+        case TextAlign.RIGHT:
+            a = "right";
+            break;
+        case TextAlign.CENTER:
+            a = "center";
+            break;
+        case TextAlign.JUSTIFY:
+            a = "justify";
+            break;
+    }
+
     return (
         <div className={"Text " + (!(props.link === null) ? "Link " : " ") + fs} style={
             {
                 color: c
             }
         }>
-            <div>
+            <div style={{textAlign: a as Property.TextAlign}}>
                 {(props.link !== null && props.link !== undefined) ? (
                     <a className={"Link " + ((typeof props.underline !== "undefined" && !props.underline) ? "NotUnderlined" : "")} href={props.link}>   
                         {props.children}
