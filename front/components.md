@@ -179,3 +179,14 @@ El contenido de este componente es el mismo que el de un elemento HTML <table>, 
 ## Footer
 
 Genera el footer.
+
+
+## Modal
+
+Genera un cuadro de diálogo modal.
+
+Propiedades:
+
+* visible: booleano que indica si el modal está siendo mostrado o no.
+
+Este componente tiene contenido, y este es tratado de forma similar al de una ContentBox.
