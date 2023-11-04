@@ -187,6 +187,7 @@ Genera un cuadro de diálogo modal.
 
 Propiedades:
 
-* visible: booleano que indica si el modal está siendo mostrado o no.
+* visible: booleano que indica si el modal está siendo mostrado o no
+* maxWidth: string con un valor de tamaño de css correspondiente al máximo ancho del componente
 
 Este componente tiene contenido, y este es tratado de forma similar al de una ContentBox.
