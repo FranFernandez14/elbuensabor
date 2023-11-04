@@ -10,6 +10,7 @@ Propiedades:
 * link (string | null): De ser null, el texto no es un enlace. Caso contrario, debe ser la url a la que redirigir
 * underlined (boolean): Si hay un link y underlined es false, no se mostrará al link subrayado. Caso contrario, si se lo hará
 * color (TextColor.DEFAULT | TextColor.LIGHTER | TextColor.LIGHT | TextColor.DARK | TextColor.ALT): establece el color del texto
+* align (TextAlign.LEFT | TextAlign.CENTER | TextAlign.RIGHT | TextAlign.JUSTIFY): establece la alineación del texto
 
 Este componente tiene contenido.
 
