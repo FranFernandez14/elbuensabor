@@ -65,8 +65,8 @@ export default function RegistrarEmpleado(){
                     </Flex>
  
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                        <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
-                        <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
+                        <Button click={()=>{window.location.href = "/AdministrarEmpleados"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
+                        <Button click={()=>{window.location.href = "/AdministrarEmpleados"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
                     </Flex>
                 </ContentBox>
             </Content>
