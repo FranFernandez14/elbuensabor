@@ -38,7 +38,6 @@
 
 .ComboBox .Icon {
     width: 30px;
-    padding-left: 10px;
 }
 
 .ComboBox .ComboBoxHead:hover {
@@ -60,6 +59,7 @@
     border-radius: 12px;
     overflow-y: auto;
     transition: max-height 100ms;
+    z-index: 1;
 }
 
 .ComboBox .ComboBoxBody>.ComboBoxItem {

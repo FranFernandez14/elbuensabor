@@ -12,6 +12,7 @@ import Button from './Components/Button/Button';
 import { TextSize } from './Components/Text/TextSize';
 import { ButtonWidth } from './Components/Button/ButtonWidth';
 import { ButtonColor } from './Components/Button/ButtonColor';
+import RegistrarEmpleado from './Pages/RegistrarEmpleado';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
                 <Route path='/PedidosCajero' element={<PedidosCajero />} />
                 <Route path='/ModificarMisDatos' element={<ModificarMisDatos />} />
                 <Route path='/ProductosMasVendidos' element={<ProductosMasVendidos />} />
+                <Route path='/RegistrarEmpleado' element={<RegistrarEmpleado />} />
                 <Route path='/TestSeleccionarRol' element={
                   <Opciones>
                     <Button click={()=>{window.location.href = "/";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Cliente</Button>
