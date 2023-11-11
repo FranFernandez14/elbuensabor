@@ -113,6 +113,18 @@ Atributos:
 * setValue: función que toma un booleano como argumento y es llamada siempre que el valor cambia
 
 
+## ItemCarrito
+
+Genera un item de carrito, que permite controlar la cantidad del producto correspondiente.
+
+Debe ser colocado dentro del <tbody> de una <Table> para su correcto funcionamiento.
+
+Atributos:
+* detalle: DetallePedido a mostrar
+* compacto: booleano que indica qué tamaño debe tener el ItemCarrito, así como la información mostrada
+* setCantidad: función que toma un número y no devuelve nada, llamada cada vez que se cambie la cantidad del producto correspondiente
+
+
 ## DateRangePicker
 
 Genera un diálogo para seleccionar un rango de fechas. De la librería RSuite.

@@ -1,0 +1,18 @@
+.ItemCarrito {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ItemCarrito .pm {
+    background-color: transparent;
+    padding: 0;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.ItemCarrito .pm:active {
+    filter: brightness(0.8);
+}
