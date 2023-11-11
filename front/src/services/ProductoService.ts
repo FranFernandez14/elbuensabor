@@ -44,6 +44,26 @@ export const ProductoService = {
         await fetch(`${API_URL}/productos/producto/${id}`, {
             method: "DELETE"
         });
-    }
+    },
+
+    getProductosPorRubro: async (rubro: string, page: {
+        number: number,
+        size: number
+    }) : Promise<Producto[]> => {
+        const response = await fetch(`
+            ${API_URL}/productos/producto/porRubro?denominacion=${rubro}&page=${page.number}&size=${page.size}`);
+        const data = await response.json();
+        return data;
+    },
+
+    buscar: async (fechaInicio: Date, fechaHasta: Date, rubros: string[], page: {
+        number: number,
+        size: number
+    }) : Promise<Producto[]> => {
+        const response = await fetch(`
+            ${API_URL}/productos/producto/ranking?fechaInicio=${fechaInicio.toISOString().split('T')[0]}&fechaHasta=${fechaHasta.toISOString().split('T')[0]}&${rubros.map(rubro => `denominaciones=${rubro}&`)}page=${page.number}&size=${page.size}`);
+        const data = await response.json();
+        return data;
+    },
     
 };
