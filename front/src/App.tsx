@@ -14,6 +14,7 @@ import { ButtonWidth } from './Components/Button/ButtonWidth';
 import { ButtonColor } from './Components/Button/ButtonColor';
 import RegistrarEmpleado from './Pages/RegistrarEmpleado';
 import AdministrarEmpleados from './Pages/AdministrarEmpleados';
+import AdministrarProductos from './Pages/AdministrarProductos';
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
                 <Route path='/ProductosMasVendidos' element={<ProductosMasVendidos />} />
                 <Route path='/AdministrarEmpleados' element={<AdministrarEmpleados />} />
                 <Route path='/RegistrarEmpleado' element={<RegistrarEmpleado />} />
+                <Route path='/AdministrarProductos' element={<AdministrarProductos />} />
                 <Route path='/TestSeleccionarRol' element={
                   <Opciones>
                     <Button click={()=>{window.location.href = "/";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Cliente</Button>
@@ -54,7 +56,7 @@ export default function App() {
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Ver pedidos</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Rubros de Ingredientes</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Rubros de Productos</Button>
-                    <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Productos</Button>
+                    <Button click={()=>{window.location.href = "/AdministrarProductos"}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Productos</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Ver Stock de Ingredientes</Button>
                   </Opciones>
                 } />
@@ -65,7 +67,7 @@ export default function App() {
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Ver pedidos</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Rubros de Ingredientes</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Rubros de Productos</Button>
-                    <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Productos</Button>
+                    <Button click={()=>{window.location.href = "/AdministrarProductos"}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrar Productos</Button>
                     <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Ver Stock de Ingredientes</Button>
                     <Button click={()=>{window.location.href = "/OpcionesAdministradorInformes";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Informes</Button>
                   </Opciones>
