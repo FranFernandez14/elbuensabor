@@ -66,6 +66,11 @@ Propiedades:
 * shape (ImageShape.RECTANGLE | ImageShape.ROUNDED | ImageShape.ELLIPSE): establece la forma del borde de la imagen. RECTANGLE indica esquinas de 90°, ROUNDED redondea levemente las esquinas y ELLIPSE redondea las esquinas lo más posible. Si width fuera igual a height, ELLIPSE hace que la imagen sea un círculo.
 
 
+## Hr
+
+Genera una regla horizontal.
+
+
 ## ComboBox
 
 Genera una lista desplegable.
@@ -123,6 +128,15 @@ Atributos:
 * detalle: DetallePedido a mostrar
 * compacto: booleano que indica qué tamaño debe tener el ItemCarrito, así como la información mostrada
 * setCantidad: función que toma un número y no devuelve nada, llamada cada vez que se cambie la cantidad del producto correspondiente
+
+
+## TarjetaProducto
+
+Genera una tarjeta que muestra los principales datos de un producto y permite añadirlo al carrito. 
+
+Atributos:
+* producto: producto a mostrar
+* addToCart: función que toma un producto y no devuelve nada, llamada siempre que el botón de la tarjeta "Añadir al carrito" sea presionado
 
 
 ## DateRangePicker
