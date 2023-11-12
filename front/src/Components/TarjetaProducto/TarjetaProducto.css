@@ -1,0 +1,11 @@
+.TarjetaProducto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
+    background-color: rgba(53, 29, 49, 0.83);
+    border-radius: 12px;
+    padding: 4px;
+    box-sizing: border-box;
+}

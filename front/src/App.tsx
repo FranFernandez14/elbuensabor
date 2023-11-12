@@ -15,6 +15,7 @@ import { ButtonColor } from './Components/Button/ButtonColor';
 import RegistrarEmpleado from './Pages/RegistrarEmpleado';
 import AdministrarEmpleados from './Pages/AdministrarEmpleados';
 import AdministrarProductos from './Pages/AdministrarProductos';
+import Carta from './Pages/Carta';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/Carta' element={<Carta />} />
                 <Route path='/MisDatos' element={<MisDatos />} />
                 <Route path='/PedidosCajero' element={<PedidosCajero />} />
                 <Route path='/ModificarMisDatos' element={<ModificarMisDatos />} />

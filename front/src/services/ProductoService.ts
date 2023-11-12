@@ -53,7 +53,7 @@ export const ProductoService = {
         const response = await fetch(`
             ${API_URL}/productos/producto/porRubro?denominacion=${rubro}&page=${page.number}&size=${page.size}`);
         const data = await response.json();
-        return data;
+        return data.content;
     },
 
     buscar: async (fechaInicio: Date, fechaHasta: Date, rubros: string[], page: {
@@ -63,7 +63,7 @@ export const ProductoService = {
         const response = await fetch(`
             ${API_URL}/productos/producto/ranking?fechaInicio=${fechaInicio.toISOString().split('T')[0]}&fechaHasta=${fechaHasta.toISOString().split('T')[0]}&${rubros.map(rubro => `denominaciones=${rubro}&`)}page=${page.number}&size=${page.size}`);
         const data = await response.json();
-        return data;
+        return data.content;
     },
     
 };

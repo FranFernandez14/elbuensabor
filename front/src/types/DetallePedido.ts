@@ -8,6 +8,5 @@ export default interface DetallePedido {
     cantidad: number,
     subtotal: number,
     subtotalCosto: number,
-    producto: Producto,
-    //pedido: Pedido
+    producto: Producto
 }
