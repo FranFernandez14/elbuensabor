@@ -17,6 +17,7 @@ import AdministrarEmpleados from './Pages/AdministrarEmpleados';
 import AdministrarProductos from './Pages/AdministrarProductos';
 import Carta from './Pages/Carta';
 import Carrito from './Pages/Carrito';
+import RealizarPedido from './Pages/RealizarPedido';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
                 <Route path='/register' element={<Register />} />
                 <Route path='/Carta' element={<Carta />} />
                 <Route path='/Carrito' element={<Carrito />} />
+                <Route path='/RealizarPedido' element={<RealizarPedido />} />
                 <Route path='/MisDatos' element={<MisDatos />} />
                 <Route path='/PedidosCajero' element={<PedidosCajero />} />
                 <Route path='/ModificarMisDatos' element={<ModificarMisDatos />} />
