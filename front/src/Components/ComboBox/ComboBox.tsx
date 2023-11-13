@@ -7,7 +7,8 @@ export default function ComboBox(
     props: {
         children: React.ReactNode,
         placeholder ?: string,
-        change ?: (id: number) => void
+        change ?: (id: number) => void,
+        fullWidth?: boolean
     }
 ) {
 
@@ -41,7 +42,9 @@ export default function ComboBox(
         }
     );
     return (
-        <div className="ComboBox">
+        <div className="ComboBox" style={{
+            width: props.fullWidth ? "100%" : "fit-content"
+        }}>
             <div className="ComboBoxHead" onClick={toggleComboBox}>
                 {selected.element}
                 <span className="placeholder">
