@@ -12,7 +12,6 @@ import "./ItemCarrito.css"
 import {FaPlus, FaMinus} from "react-icons/fa"
 import Image from "../Image/Image"
 import { ImageShape } from "../Image/ImageShape"
-import { useState } from "react"
 
 export default function ItemCarrito(props: {
     detalle: DetallePedido,
@@ -20,11 +19,9 @@ export default function ItemCarrito(props: {
     setCantidad: (cantidad: number) => void
 }) {
 
-    const [cantidad, setCantidad] = useState(props.detalle.cantidad);
 
     function changeCantidad(c: number): void {
         if(c>=0) {
-            setCantidad(c);
             props.setCantidad(c);
         }
     }
@@ -37,12 +34,12 @@ export default function ItemCarrito(props: {
                 <td>
                     <IconContext.Provider value={{size: "10px"}}>
                         <Flex direction={FlexDirection.COLUMN} align={FlexAlign.EXTREMES}>
-                            <button className="pm" onClick={()=>{changeCantidad(cantidad + 1)}} style={{fontSize: "10px", lineHeight: "10px"}}><FaPlus /></button>
-                            <button className="pm" onClick={()=>{changeCantidad(cantidad - 1)}} style={{fontSize: "10px", lineHeight: "10px"}}><FaMinus /></button>
+                            <button className="pm" onClick={()=>{changeCantidad(props.detalle.cantidad + 1)}} style={{fontSize: "10px", lineHeight: "10px"}}><FaPlus /></button>
+                            <button className="pm" onClick={()=>{changeCantidad(props.detalle.cantidad - 1)}} style={{fontSize: "10px", lineHeight: "10px"}}><FaMinus /></button>
                         </Flex>
                     </IconContext.Provider>
                 </td>
-                <td><Text fontSize={TextSize.SMALLER}>N.° {cantidad}</Text></td>
+                <td><Text fontSize={TextSize.SMALLER}>N.° {props.detalle.cantidad}</Text></td>
                 <td><Text fontSize={TextSize.SMALLER}>${props.detalle.subtotal}</Text></td> 
             </tr>
         )
@@ -55,12 +52,12 @@ export default function ItemCarrito(props: {
                 <td>
                     <IconContext.Provider value={{size: "20px"}}>
                         <Flex direction={FlexDirection.COLUMN} align={FlexAlign.EXTREMES}>
-                            <button className="pm" onClick={()=>{changeCantidad(cantidad + 1)}}><FaPlus /></button>
-                            <button className="pm" onClick={()=>{changeCantidad(cantidad - 1)}}><FaMinus /></button>
+                            <button className="pm" onClick={()=>{changeCantidad(props.detalle.cantidad + 1)}}><FaPlus /></button>
+                            <button className="pm" onClick={()=>{changeCantidad(props.detalle.cantidad - 1)}}><FaMinus /></button>
                         </Flex>
                     </IconContext.Provider>
                 </td>
-                <td><Text fontSize={TextSize.SMALLER}>{cantidad} unidades</Text></td>
+                <td><Text fontSize={TextSize.SMALLER}>{props.detalle.cantidad} unidades</Text></td>
                 <td><Text fontSize={TextSize.SMALLER}>${props.detalle.subtotal}</Text></td>
                 <td><Button color={ButtonColor.DARK} click={function (): void {changeCantidad(0)} } fontSize={TextSize.SMALLER} width={ButtonWidth.HUG}>Quitar</Button></td>           
                 
