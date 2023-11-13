@@ -20,9 +20,11 @@ import Table from "../Components/Table/Table";
 import { TableStyle } from "../Components/Table/TableStyle";
 import ItemCarrito from "../Components/ItemCarrito/ItemCarrito";
 import Pedido from "../types/Pedido";
-import { EstadoPedido } from "../types/EstadoPedido";
 import { TextColor } from "../Components/Text/TextColor";
 import Text from "../Components/Text/Text";
+import { PedidoService } from "../services/PedidoService";
+import { DetallePedidoService } from "../services/DetallePedidoService";
+import DetallePedido from "../types/DetallePedido";
 
 export default function Carta(){
 
@@ -37,6 +39,7 @@ export default function Carta(){
     useEffect(() => {
         setIsLoading(true);
         (async () => {
+
             const rubros = await RubroProductoService.getRubrosProducto();
             setRubros(rubros);
 
@@ -46,38 +49,51 @@ export default function Carta(){
                 setProductos((await ProductoService.getProductosPorRubro(rubroSelec, {number:0, size:100})));
             }
 
-            /* DESCOMENTAR CUANDO TENGAMOS EL PERSONASERVICE
-            const cliente = await PersonaService.getPersona(id);
-            cliente.pedidos.forEach(pedido => {
-                if(pedido.estadoActual === EstadoPedido.PENDIENTE_PAGO) {
-                    setPedido(pedido);
-                }
-            });
-            if(pedido === undefined) {
-                const pedido = await PedidoService.createPedido({
-                    id: null,
-                    fechaAlta: new Date(),
-                    fechaModificacion: null,
-                    fechaBaja: null,
-                    fechaPedido: null,
-                    horaEstimadaFinalizacion: null,
-                    total: 0,
-                    totalCosto: 0,
-                    estadoActual: EstadoPedido.PENDIENTE_PAGO,
-                    tipoEnvio: TipoEnvio.TAKE_AWAY,
-                    formaPago: FormaPago.EFECTIVO,
-                    detalles: [],
-                    domicilioEntrega: cliente.domicilios[0],
-                    cliente: cliente
-                });
-                setPedido(pedido);
-            }
-            */
+            const p = await PedidoService.getPedidoActual();
+            setPedido(p);
+            
 
             setIsLoading(false);
         })();
     }, [rubroSelec]);
     
+
+    async function changeDetalleCantidad(detalle: DetallePedido, cantidad: number) {
+        if(detalle.id === null) return;
+        detalle.cantidad = cantidad;
+        detalle.subtotal = detalle.producto.precioVenta * cantidad;
+        detalle.subtotalCosto = detalle.producto.costo * cantidad;
+        await DetallePedidoService.updateDetallePedido(detalle.id, detalle);
+        
+        setPedido(await PedidoService.getPedidoActual());
+    }
+
+    async function addDetallePedido(producto: Producto) {
+        
+        if(pedido === undefined) return;
+        let detalleEncontrado = false;
+        pedido.detalles.forEach(d => {
+            if(d.producto.id === producto.id) {
+                changeDetalleCantidad(d, d.cantidad + 1);
+                detalleEncontrado = true;
+            }
+        });
+        if(detalleEncontrado) return;
+        let detalle : DetallePedido = {
+            id: null,
+            fechaAlta: new Date(),
+            fechaModificacion: null,
+            fechaBaja: null,
+            cantidad: 1,
+            subtotal: producto.precioVenta,
+            subtotalCosto: producto.costo,
+            producto: producto
+        };
+        detalle = await DetallePedidoService.createDetallePedido(detalle);
+        pedido.detalles.push(detalle);
+        setPedido(await PedidoService.updatePedido(1, pedido));
+    }
+
     return (
         <>
             <TitleBar userid={0}/>
@@ -101,7 +117,7 @@ export default function Carta(){
                     
                     <Flex direction={FlexDirection.WRAP} align={FlexAlign.CENTER}>
                         {isLoading ? "" : productos.map(producto => (
-                            <TarjetaProducto key={producto.id} producto={producto} addToCart={(producto) => {}}/>
+                            <TarjetaProducto key={producto.id} producto={producto} addToCart={(producto) => {addDetallePedido(producto)}}/>
                         ))}
                     </Flex>
                     
@@ -118,7 +134,7 @@ export default function Carta(){
                             }}>
                                 <Table style={TableStyle.SEAMLESS} width={100}><tbody>
                                     {isLoading ? "" : pedido?.detalles.map(detalle => (
-                                        <ItemCarrito compacto detalle={detalle} setCantidad={(cantidad: number) =>{detalle.cantidad = cantidad} }/>
+                                        <ItemCarrito key={detalle.id} compacto detalle={detalle} setCantidad={(cantidad: number) =>{changeDetalleCantidad(detalle, cantidad)} }/>
                                     ))}
                                 </tbody></Table>
 

@@ -5,19 +5,19 @@ const API_URL = BASE_URL + "/api/v1";
 
 export const DetallePedidoService = {
     getRubrosDetallePedidos: async () : Promise<DetallePedido[]> => {
-        const response = await fetch(`${API_URL}/productos/detallePedido`);
+        const response = await fetch(`${API_URL}/pedidos/detallePedido`);
         const data = await response.json();
         return data;
     },
 
     getDetallePedido: async(id: number) : Promise<DetallePedido> => {
-        const response = await fetch(`${API_URL}/productos/detallePedido/${id}`);
+        const response = await fetch(`${API_URL}/pedidos/detallePedido/${id}`);
         const data = await response.json();
         return data;
     },
 
     createDetallePedido: async(detallePedido: DetallePedido) : Promise<DetallePedido> => {
-        const response = await fetch(`${API_URL}/productos/detallePedido`, {
+        const response = await fetch(`${API_URL}/pedidos/detallePedido`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export const DetallePedidoService = {
     },
 
     updateDetallePedido: async(id: number, detallePedido: DetallePedido) : Promise<DetallePedido> => {
-        const response = await fetch(`${API_URL}/productos/detallePedido/${id}`, {
+        const response = await fetch(`${API_URL}/pedidos/detallePedido/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export const DetallePedidoService = {
     },
 
     deleteDetallePedido: async(id: number) : Promise<void> => {
-        await fetch(`${API_URL}/productos/detallePedido/${id}`, {
+        await fetch(`${API_URL}/pedidos/detallePedido/${id}`, {
             method: "DELETE"
         });
     }    

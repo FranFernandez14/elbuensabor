@@ -1,10 +1,10 @@
 import Producto from "./Producto";
 
 export default interface DetallePedido {
-    id: number,
+    id: number | null,
     fechaAlta: Date,
-    fechaModificacion: Date,
-    fechaBaja: Date,
+    fechaModificacion: Date | null,
+    fechaBaja: Date | null,
     cantidad: number,
     subtotal: number,
     subtotalCosto: number,
