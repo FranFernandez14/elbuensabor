@@ -26,36 +26,19 @@ import { PedidoService } from "../services/PedidoService";
 import { DetallePedidoService } from "../services/DetallePedidoService";
 import DetallePedido from "../types/DetallePedido";
 
-export default function Carta(){
+export default function Carrito(){
 
-    const [productos, setProductos] = useState<Producto[]>([]);
-    const [rubros, setRubros] = useState<RubroProducto[]>([]);
     const [pedido, setPedido] = useState<Pedido>();
-
-    const [rubroSelec, setRubroSelec] = useState("");
 
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setIsLoading(true);
         (async () => {
-
-            const rubros = await RubroProductoService.getRubrosProducto();
-            setRubros(rubros);
-
-            if(rubroSelec.length === 0) {
-                setProductos(await ProductoService.getProductos());
-            } else {
-                setProductos((await ProductoService.getProductosPorRubro(rubroSelec, {number:0, size:100})));
-            }
-
             const p = await PedidoService.getPedidoActual();
             setPedido(p);
-            
-
             setIsLoading(false);
         })();
-    }, [rubroSelec]);
+    }, []);
     
 
     async function changeDetalleCantidad(detalle: DetallePedido, cantidad: number) {
@@ -64,7 +47,6 @@ export default function Carta(){
         detalle.subtotal = detalle.producto.precioVenta * cantidad;
         detalle.subtotalCosto = detalle.producto.costo * cantidad;
         await DetallePedidoService.updateDetallePedido(detalle.id, detalle);
-        
         let p : Pedido = await PedidoService.getPedidoActual();
         p.total = 0;
         p.totalCosto = 0;
@@ -77,79 +59,38 @@ export default function Carta(){
         setPedido(p);
     }
 
-    async function addDetallePedido(producto: Producto) {
-        
-        if(pedido === undefined) return;
-        let detalleEncontrado = false;
-        pedido.detalles.forEach(d => {
-            if(d.producto.id === producto.id) {
-                changeDetalleCantidad(d, d.cantidad + 1);
-                detalleEncontrado = true;
-            }
-        });
-        if(detalleEncontrado) return;
-        let detalle : DetallePedido = {
-            id: null,
-            fechaAlta: new Date(),
-            fechaModificacion: null,
-            fechaBaja: null,
-            cantidad: 1,
-            subtotal: producto.precioVenta,
-            subtotalCosto: producto.costo,
-            producto: producto
-        };
-        detalle = await DetallePedidoService.createDetallePedido(detalle);
-        pedido.detalles.push(detalle);
-        setPedido(await PedidoService.updatePedido(1, pedido));
-    }
-
     return (
         <>
             <TitleBar userid={0}/>
             
             <Content>
-                <ContentBox width={70}>
-                    <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Search action={() => {}} placeholder="Buscar..." width={60}/>
-                    </Flex>
-
-                    <Flex direction={FlexDirection.WRAP} align={FlexAlign.CENTER}>
-                        <Button click={() =>{setRubroSelec("")}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.DARK}>
-                            Todo
-                        </Button>
-                        {isLoading ? "" : rubros.map(rubro => (
-                            <Button key={rubro.id} click={() =>{setRubroSelec(rubro.denominacion)}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.DARK}>
-                                {rubro.denominacion}
-                            </Button>
-                        ))}
-                    </Flex>
-                    
-                    <Flex direction={FlexDirection.WRAP} align={FlexAlign.CENTER}>
-                        {isLoading ? "" : productos.map(producto => (
-                            <TarjetaProducto key={producto.id} producto={producto} addToCart={(producto) => {addDetallePedido(producto)}}/>
-                        ))}
-                    </Flex>
-                    
-                </ContentBox>
-
                 {
                     pedido === undefined ? "" : (
-                        <ContentBox width={30}>
+                        <ContentBox width={80}>
                             <div style={{
                                 display: "flex",
                                 flexDirection: "column",
                                 justifyContent: "space-between",
                                 width: "100%"
                             }}>
+                                <Flex direction={FlexDirection.ROW} align={FlexAlign.START}>
+                                    <Text fontSize={TextSize.MEDIUM} link={null}>Carrito</Text>
+                                </Flex>
                                 <Table style={TableStyle.SEAMLESS} width={100}><tbody>
                                     {isLoading ? "" : pedido?.detalles.map(detalle => (
-                                        <ItemCarrito key={detalle.id} compacto detalle={detalle} setCantidad={(cantidad: number) =>{changeDetalleCantidad(detalle, cantidad)} }/>
+                                        <ItemCarrito key={detalle.id} detalle={detalle} setCantidad={(cantidad: number) =>{changeDetalleCantidad(detalle, cantidad)} }/>
                                     ))}
                                 </tbody></Table>
 
                                 <div style={{width: "100%"}}>
-                                    <Text color={TextColor.LIGHTER} fontSize={TextSize.SMALLER}>Subtotal: ${pedido?.total}</Text>
-                                    <Button click={()=>{window.location.href="/Carrito"}} color={ButtonColor.ALT} width={ButtonWidth.FILL} fontSize={TextSize.SMALLER}>Ir a pagar</Button>
+                                    <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                                        <Text color={TextColor.LIGHTER} fontSize={TextSize.SMALL}>Subtotal</Text>
+                                        <Text color={TextColor.LIGHTER} fontSize={TextSize.SMALL}>${pedido?.total}</Text>
+                                    </Flex>
+                                    <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                                        <Button click={()=>{window.location.href="/Carta"}} color={ButtonColor.DARK} width={ButtonWidth.HUG} fontSize={TextSize.SMALLER}>Agregar más productos</Button>
+                                        <Button click={()=>{window.location.href="/RealizarPedido"}} color={ButtonColor.ALT} width={ButtonWidth.HUG} fontSize={TextSize.SMALLER}>Confirmar pedido</Button>
+                                    </Flex>
                                 </div>
                             </div>
                             
