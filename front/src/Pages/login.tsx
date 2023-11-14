@@ -14,11 +14,53 @@ import TextField from "../Components/TextField/TextField";
 import { TextFieldType } from "../Components/TextField/TextFieldType";
 import Hr from "../Components/Hr/Hr";
 import Google from "../Components/Google/Google";
+import { useState } from "react";
+import LoginRequest from "../types/LoginRequest";
+import { AuthService } from "../services/AuthService";
+import { Rol } from "../types/Rol";
 
 export default function Login(){
+
+    const [request, setRequest] = useState<LoginRequest>({
+        email: "",
+        password: ""
+    });
+
+    async function login() {
+
+        await AuthService.login(request);
+        const cliente = await AuthService.getCurrentUser();
+        if(cliente === null) {
+            alert("Inténtelo de nuevo");
+            return;
+        }
+        switch (cliente.rol) {
+            case Rol.ADMINISTRADOR:
+                window.location.href = "/OpcionesAdministrador"
+                break;
+                
+            case Rol.CAJERO:
+                window.location.href = "/OpcionesCajero"
+                break;
+                
+            case Rol.COCINERO:
+                window.location.href = "/OpcionesCocinero"
+                break;
+                
+            case Rol.DELIVERY:
+                window.location.href = "/OpcionesDelivery"
+                break;
+                
+            case Rol.CLIENTE:
+                window.location.href = "/Carta"
+                break;
+        }
+    }
+
+
     return (
         <>
-            <TitleBar userid={undefined}/>
+            <TitleBar/>
             
             <Content>
                 <div className="customContentBox" style={
@@ -44,15 +86,15 @@ export default function Login(){
                         <Hr/>
 
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Correo"} type={TextFieldType.SINGLELINE}/>
+                            <TextField placeholder={"Correo"} type={TextFieldType.SINGLELINE} value={request.email} setValue={(v: string) => {request.email = v}}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Contraseña"} type={TextFieldType.PASSWORD}/>
+                            <TextField placeholder={"Contraseña"} type={TextFieldType.PASSWORD} value={request.password} setValue={(v: string) => {request.password = v}}/>
                         </Flex>
     
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <Button click={()=>{window.location.href="/";}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
-                            <Button click={()=>{window.location.href="/TestSeleccionarRol";}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
+                            <Button click={login} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
                         </Flex>
 
                         

@@ -2,7 +2,6 @@ import DetallePedido from "./DetallePedido";
 import Domicilio from "./Domicilio";
 import { EstadoPedido } from "./EstadoPedido";
 import { FormaPago } from "./FormaPago";
-import Persona from "./Persona";
 import { TipoEnvio } from "./TipoEnvio";
 
 export default interface Pedido {

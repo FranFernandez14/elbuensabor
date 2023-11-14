@@ -5,13 +5,21 @@ const API_URL = BASE_URL + "/api/v1";
 
 export const UsuarioService = {
     getUsurios: async () : Promise<Usuario[]> => {
-        const response = await fetch(`${API_URL}/usuarios/usuario`);
+        const response = await fetch(`${API_URL}/usuarios/usuario`, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
+        });
         const data = await response.json();
         return data;
     },
 
     getUsurio: async(id: number) : Promise<Usuario> => {
-        const response = await fetch(`${API_URL}/usuarios/usuario/${id}`);
+        const response = await fetch(`${API_URL}/usuarios/usuario/${id}`, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
+        });
         const data = await response.json();
         return data;
     },
@@ -20,7 +28,8 @@ export const UsuarioService = {
         const response = await fetch(`${API_URL}/usuarios/usuario`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
             },
             body: JSON.stringify(usuario)
         });
@@ -32,7 +41,8 @@ export const UsuarioService = {
         const response = await fetch(`${API_URL}/usuarios/usuario/${id}`, {
             method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
             },
             body: JSON.stringify(usuario)
         });
@@ -42,7 +52,10 @@ export const UsuarioService = {
 
     deleteUsurio: async(id: number) : Promise<void> => {
         await fetch(`${API_URL}/usuarios/usuario/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
         });
     }    
 };

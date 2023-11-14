@@ -5,13 +5,19 @@ const API_URL = BASE_URL + "/api/v1";
 
 export const RubroProductoService = {
     getRubrosProducto: async () : Promise<RubroProducto[]> => {
-        const response = await fetch(`${API_URL}/productos/rubroProducto`);
+        const response = await fetch(`${API_URL}/productos/rubroProducto`, {
+            headers: {
+            }
+        });
         const data = await response.json();
         return data;
     },
 
     getRubroProducto: async(id: number) : Promise<RubroProducto> => {
-        const response = await fetch(`${API_URL}/productos/rubroProducto/${id}`);
+        const response = await fetch(`${API_URL}/productos/rubroProducto/${id}`, {
+            headers: {
+            }
+        });
         const data = await response.json();
         return data;
     },
@@ -20,7 +26,7 @@ export const RubroProductoService = {
         const response = await fetch(`${API_URL}/productos/rubroProducto`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(rubroProducto)
         });
@@ -32,7 +38,7 @@ export const RubroProductoService = {
         const response = await fetch(`${API_URL}/productos/rubroProducto/${id}`, {
             method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(rubroProducto)
         });
@@ -42,7 +48,9 @@ export const RubroProductoService = {
 
     deleteRubroProducto: async(id: number) : Promise<void> => {
         await fetch(`${API_URL}/productos/rubroProducto/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+            }
         });
     }    
 };

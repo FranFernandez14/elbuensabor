@@ -14,8 +14,46 @@ import TextField from "../Components/TextField/TextField";
 import { TextFieldType } from "../Components/TextField/TextFieldType";
 import Hr from "../Components/Hr/Hr";
 import Google from "../Components/Google/Google";
+import RegisterRequest from "../types/RegisterRequest";
+import { AuthService } from "../services/AuthService";
+import { useState } from "react";
+import { Rol } from "../types/Rol";
 
 export default function Register(){
+
+    const [request, setRequest] = useState<RegisterRequest>({
+        email: "",
+        password: "",
+        telefono: "",
+        nombre: "",
+        apellido: "",
+        domicilio: {
+            id: null,
+            fechaAlta: new Date(),
+            fechaModificacion: null,
+            fechaBaja: null,
+            calle: "",
+            numero: 0,
+            codigoPostal: 0,
+            localidad: "",
+            numeroDpto: 0,
+            pisoDpto: 0,
+            persona: null
+        },
+        rol: Rol.CLIENTE
+    });
+
+    const [password2, setPassword2] = useState("");
+
+    async function registrarse() {
+        if(request.password !== password2) {
+            alert("La contraseña no coincide");
+            return;
+        }
+        await AuthService.register(request);
+        window.location.href = "/Carta";
+    }
+
     return (
         <>
             <TitleBar/>
@@ -45,29 +83,29 @@ export default function Register(){
                         <Hr/>
 
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Nombre"} type={TextFieldType.SINGLELINE}/>
-                            <TextField placeholder={"Apellido"} type={TextFieldType.SINGLELINE}/>
+                            <TextField placeholder={"Nombre"} type={TextFieldType.SINGLELINE} value={request.nombre} setValue={(v: string) => {request.nombre = v}}/>
+                            <TextField placeholder={"Apellido"} type={TextFieldType.SINGLELINE} value={request.apellido} setValue={(v: string) => {request.apellido = v}}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Teléfono"} type={TextFieldType.SINGLELINE}/>
-                            <TextField placeholder={"Departamento"} type={TextFieldType.SINGLELINE}/>
+                            <TextField placeholder={"Teléfono"} type={TextFieldType.SINGLELINE}  value={request.telefono} setValue={(v: string) => {request.telefono = v}}/>
+                            <TextField placeholder={"Departamento"} type={TextFieldType.SINGLELINE}  value={request.domicilio.localidad} setValue={(v: string) => {request.domicilio.localidad = v}}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Dirección"} type={TextFieldType.SINGLELINE}/>
+                            <TextField placeholder={"Dirección"} type={TextFieldType.SINGLELINE}  value={request.domicilio.calle} setValue={(v: string) => {request.domicilio.calle = v}}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Correo"} type={TextFieldType.SINGLELINE}/>
+                            <TextField placeholder={"Correo"} type={TextFieldType.SINGLELINE} value={request.email} setValue={(v: string) => {request.email = v}}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Contraseña"} type={TextFieldType.PASSWORD}/>
+                            <TextField placeholder={"Contraseña"} type={TextFieldType.PASSWORD} value={request.password} setValue={(v: string) => {request.password = v}}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Repetir Contraseña"} type={TextFieldType.PASSWORD}/>
+                            <TextField placeholder={"Repetir Contraseña"} type={TextFieldType.PASSWORD} value={request.password} setValue={(v: string) => {setPassword2(v)}}/>
                         </Flex>
     
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <Button click={()=>{window.location.href="/";}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
-                            <Button click={()=>{window.location.href="/TestSeleccionarRol";}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
+                            <Button click={registrarse} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
                         </Flex>
 
                         

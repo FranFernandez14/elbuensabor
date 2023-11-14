@@ -59,7 +59,7 @@ export default function RealizarPedido(){
 
     return (
         <>
-            <TitleBar userid={0}/>
+            <TitleBar />
             
             <Content>
                 {
@@ -72,7 +72,7 @@ export default function RealizarPedido(){
                                 <Text fontSize={TextSize.SMALL} link={null}>¿Dónde desea retirar el pedido?</Text>
                             </Flex>
                             <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                                <ComboBox fullWidth placeholder="Tipo de Envío" change={(i) => {setTipoEnvio(Object.values(TipoEnvio).indexOf(Object.values(TipoEnvio)[i]))}}>
+                                <ComboBox fullWidth placeholder="Tipo de Envío" change={(i) => {setTipoEnvio(Object.values(TipoEnvio)[i])}}>
                                     {
                                         Object.keys(TipoEnvio).filter((v) => isNaN(Number(v))).map((k, i) => (
                                             <ComboBoxItem key={i} id={i}>{k}</ComboBoxItem>
@@ -109,7 +109,7 @@ export default function RealizarPedido(){
                                     <Text fontSize={TextSize.SMALL} link={null}>Seleccione un medio de pago</Text>
                                 </Flex>
                                 <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                                    <ComboBox fullWidth placeholder="Forma de pago" change={(i) => {setFormaPago(Object.values(FormaPago).indexOf(Object.values(FormaPago)[i]))}}>
+                                    <ComboBox fullWidth placeholder="Forma de pago" change={(i) => {setFormaPago(Object.values(FormaPago)[i])}}>
                                         {
                                             Object.keys(FormaPago).filter((v) => isNaN(Number(v))).map((k, i) => (
                                                 <ComboBoxItem key={i} id={i}>{k}</ComboBoxItem>
