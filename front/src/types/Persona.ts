@@ -9,14 +9,15 @@ export default interface Persona {
     fechaAlta: Date,
     fechaModificacion: Date,
     fechaBaja: Date,
-    email:String,
-    password:String,
+    email:string,
+    password:string,
     rol: Rol,
-    nombre:String,
-    apellido:String,
-    telefono:String,
+    nombre:string,
+    apellido:string,
+    telefono:string,
     domicilios:Domicilio[],
     pedidos:Pedido[],
-    notasCredito:NotasCredito[]
+    notasCredito:NotasCredito[],
+    authorities:any //Pasan cosas feas si esto no se pone...
     
 }

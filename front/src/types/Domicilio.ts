@@ -2,15 +2,15 @@ import Persona from "./Persona";
 
 
 export default interface Domicilio{
-    id: number,
+    id: number | null,
     fechaAlta: Date,
-    fechaModificacion: Date,
-    fechaBaja: Date,
-    calle: String,
+    fechaModificacion: Date | null,
+    fechaBaja: Date | null,
+    calle: string,
     numero: number,
     codigoPostal: number,
-    localidad: String,
+    localidad: string,
     numeroDpto: number,
     pisoDpto: number,
-    persona:Persona
+    persona: Persona | null
 }

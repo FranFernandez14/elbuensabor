@@ -23,8 +23,6 @@ import Pedido from "../types/Pedido";
 import { TextColor } from "../Components/Text/TextColor";
 import Text from "../Components/Text/Text";
 import { PedidoService } from "../services/PedidoService";
-import { DetallePedidoService } from "../services/DetallePedidoService";
-import DetallePedido from "../types/DetallePedido";
 
 export default function Carta(){
 
@@ -58,54 +56,17 @@ export default function Carta(){
     }, [rubroSelec]);
     
 
-    async function changeDetalleCantidad(detalle: DetallePedido, cantidad: number) {
-        if(detalle.id === null) return;
-        detalle.cantidad = cantidad;
-        detalle.subtotal = detalle.producto.precioVenta * cantidad;
-        detalle.subtotalCosto = detalle.producto.costo * cantidad;
-        await DetallePedidoService.updateDetallePedido(detalle.id, detalle);
-        
-        let p : Pedido = await PedidoService.getPedidoActual();
-        p.total = 0;
-        p.totalCosto = 0;
-        p.detalles.forEach(d => {
-            p.total += d.cantidad * d.producto.precioVenta;
-            p.totalCosto += d.cantidad * d.producto.costo;
-        });
-        if(p.id === null) return;
-        p = await PedidoService.updatePedido(p.id, p);
-        setPedido(p);
-    }
+    async function changeDetalleCantidad(producto: Producto, cantidad: number) {
+        let p = await PedidoService.getPedidoActual();
+        if(p === undefined || p.id === null) return;
 
-    async function addDetallePedido(producto: Producto) {
-        
-        if(pedido === undefined) return;
-        let detalleEncontrado = false;
-        pedido.detalles.forEach(d => {
-            if(d.producto.id === producto.id) {
-                changeDetalleCantidad(d, d.cantidad + 1);
-                detalleEncontrado = true;
-            }
-        });
-        if(detalleEncontrado) return;
-        let detalle : DetallePedido = {
-            id: null,
-            fechaAlta: new Date(),
-            fechaModificacion: null,
-            fechaBaja: null,
-            cantidad: 1,
-            subtotal: producto.precioVenta,
-            subtotalCosto: producto.costo,
-            producto: producto
-        };
-        detalle = await DetallePedidoService.createDetallePedido(detalle);
-        pedido.detalles.push(detalle);
-        setPedido(await PedidoService.updatePedido(1, pedido));
+        p = await PedidoService.agregarDetalle(p.id, producto.id, cantidad);
+        setPedido(p);
     }
 
     return (
         <>
-            <TitleBar userid={0}/>
+            <TitleBar/>
             
             <Content>
                 <ContentBox width={70}>
@@ -126,7 +87,7 @@ export default function Carta(){
                     
                     <Flex direction={FlexDirection.WRAP} align={FlexAlign.CENTER}>
                         {isLoading ? "" : productos.map(producto => (
-                            <TarjetaProducto key={producto.id} producto={producto} addToCart={(producto) => {addDetallePedido(producto)}}/>
+                            <TarjetaProducto key={producto.id} producto={producto} addToCart={(producto) => {changeDetalleCantidad(producto, 1)}}/>
                         ))}
                     </Flex>
                     
@@ -142,8 +103,8 @@ export default function Carta(){
                                 width: "100%"
                             }}>
                                 <Table style={TableStyle.SEAMLESS} width={100}><tbody>
-                                    {isLoading ? "" : pedido?.detalles.map(detalle => (
-                                        <ItemCarrito key={detalle.id} compacto detalle={detalle} setCantidad={(cantidad: number) =>{changeDetalleCantidad(detalle, cantidad)} }/>
+                                    {(isLoading || pedido.detalles === null) ? "" : pedido.detalles.map(detalle => (
+                                        <ItemCarrito key={detalle.id} compacto detalle={detalle} setCantidad={(cantidad: number) =>{changeDetalleCantidad(detalle.producto, cantidad - detalle.cantidad)} }/>
                                     ))}
                                 </tbody></Table>
 

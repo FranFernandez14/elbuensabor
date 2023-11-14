@@ -6,7 +6,12 @@ import { ButtonWidth } from "../Components/Button/ButtonWidth";
 import { TextSize } from "../Components/Text/TextSize";
 import Footer from "../Components/Footer/Footer";
 
-export default function Home(){
+export default function Home(props: {
+    logout?: boolean
+}){
+    if(props.logout) {
+        localStorage.clear();
+    }
     return (
         <>
             <TitleBar/>

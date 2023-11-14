@@ -156,10 +156,6 @@ Genera el botón "Continuar con Google" para administrar las cuentas de los usua
 
 Genera la barra superior. Varía según el rol del usuario.
 
-Propiedades:
-
-* userid (bigint | undefined): De ser undefined, muestra las opciones para iniciar sesión y registrarse. Si no, busca los datos del usuario cuya id es userid y le ofrece las opciones que le corresponden.
-
 
 ## Content
 

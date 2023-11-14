@@ -37,25 +37,18 @@ export default function Carrito(){
 
     async function changeDetalleCantidad(detalle: DetallePedido, cantidad: number) {
         if(detalle.id === null) return;
-        detalle.cantidad = cantidad;
-        detalle.subtotal = detalle.producto.precioVenta * cantidad;
-        detalle.subtotalCosto = detalle.producto.costo * cantidad;
-        await DetallePedidoService.updateDetallePedido(detalle.id, detalle);
-        let p : Pedido = await PedidoService.getPedidoActual();
-        p.total = 0;
-        p.totalCosto = 0;
-        p.detalles.forEach(d => {
-            p.total += d.cantidad * d.producto.precioVenta;
-            p.totalCosto += d.cantidad * d.producto.costo;
-        });
-        if(p.id === null) return;
-        p = await PedidoService.updatePedido(p.id, p);
+
+        let p = await PedidoService.getPedidoActual();
+        if(p === undefined || p.id === null) return;
+
+        p = await PedidoService.agregarDetalle(p.id, detalle.producto.id, cantidad - detalle.cantidad);
         setPedido(p);
+
     }
 
     return (
         <>
-            <TitleBar userid={0}/>
+            <TitleBar/>
             
             <Content>
                 {
