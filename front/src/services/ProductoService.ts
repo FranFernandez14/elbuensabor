@@ -5,13 +5,20 @@ const API_URL = BASE_URL + "/api/v1";
 
 export const ProductoService = {
     getProductos: async () : Promise<Producto[]> => {
-        const response = await fetch(`${API_URL}/productos/producto`);
+        const response = await fetch(`${API_URL}/productos/producto`,
+        {
+            headers: {
+            }
+        });
         const data = await response.json();
         return data;
     },
 
     getProducto: async(id: number) : Promise<Producto> => {
-        const response = await fetch(`${API_URL}/productos/producto/${id}`);
+        const response = await fetch(`${API_URL}/productos/producto/${id}`, {
+            headers: {
+            }
+        });
         const data = await response.json();
         return data;
     },
@@ -20,7 +27,7 @@ export const ProductoService = {
         const response = await fetch(`${API_URL}/productos/producto`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(producto)
         });
@@ -32,7 +39,7 @@ export const ProductoService = {
         const response = await fetch(`${API_URL}/productos/producto/${id}`, {
             method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(producto)
         });
@@ -42,7 +49,9 @@ export const ProductoService = {
 
     deleteProducto: async(id: number) : Promise<void> => {
         await fetch(`${API_URL}/productos/producto/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+            }
         });
     },
 
@@ -51,7 +60,10 @@ export const ProductoService = {
         size: number
     }) : Promise<Producto[]> => {
         const response = await fetch(`
-            ${API_URL}/productos/producto/porRubro?denominacion=${rubro}&page=${page.number}&size=${page.size}`);
+            ${API_URL}/productos/producto/porRubro?denominacion=${rubro}&page=${page.number}&size=${page.size}`, {
+                headers: {
+                }
+            });
         const data = await response.json();
         return data.content;
     },
@@ -61,7 +73,10 @@ export const ProductoService = {
         size: number
     }) : Promise<Producto[]> => {
         const response = await fetch(`
-            ${API_URL}/productos/producto/ranking?fechaInicio=${fechaInicio.toISOString().split('T')[0]}&fechaHasta=${fechaHasta.toISOString().split('T')[0]}&${rubros.map(rubro => `denominaciones=${rubro}&`)}page=${page.number}&size=${page.size}`);
+            ${API_URL}/productos/producto/ranking?fechaInicio=${fechaInicio.toISOString().split('T')[0]}&fechaHasta=${fechaHasta.toISOString().split('T')[0]}&${rubros.map(rubro => `denominaciones=${rubro}&`)}page=${page.number}&size=${page.size}`, {
+                headers: {
+                }
+            });
         const data = await response.json();
         return data.content;
     },

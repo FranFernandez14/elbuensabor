@@ -28,6 +28,7 @@ export default function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/logout' element={<Home logout />} />
                 <Route path='/Carta' element={<Carta />} />
                 <Route path='/Carrito' element={<Carrito />} />
                 <Route path='/RealizarPedido' element={<RealizarPedido />} />
@@ -44,7 +45,7 @@ export default function App() {
                     <Button click={()=>{window.location.href = "/OpcionesCajero";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Cajero</Button>
                     <Button click={()=>{window.location.href = "/OpcionesDelivery";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Delivery</Button>
                     <Button click={()=>{window.location.href = "/OpcionesCocinero";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Cocinero</Button>
-                    <Button click={()=>{window.location.href = "/OpcionesAdministrador  ";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrador</Button>
+                    <Button click={()=>{window.location.href = "/OpcionesAdministrador";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Administrador</Button>
                   </Opciones>
                 } />
                 <Route path='/OpcionesCajero' element={

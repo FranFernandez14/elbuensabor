@@ -2,6 +2,7 @@ import { EstadoPedido } from "../types/EstadoPedido";
 import { FormaPago } from "../types/FormaPago";
 import Pedido from "../types/Pedido";
 import { TipoEnvio } from "../types/TipoEnvio";
+import { AuthService } from "./AuthService";
 import { PersonaService } from "./PersonaService";
 
 const BASE_URL = "http://localhost:8080";
@@ -9,13 +10,22 @@ const API_URL = BASE_URL + "/api/v1";
 
 export const PedidoService = {
     getPedidos: async () : Promise<Pedido[]> => {
-        const response = await fetch(`${API_URL}/pedidos/pedido`);
+        const response = await fetch(`${API_URL}/pedidos/pedido`, {
+            mode: 'cors',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
+        });
         const data = await response.json();
         return data;
     },
 
     getPedido: async(id: number) : Promise<Pedido> => {
-        const response = await fetch(`${API_URL}/pedidos/pedido/${id}`);
+        const response = await fetch(`${API_URL}/pedidos/pedido/${id}`, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
+        });
         const data = await response.json();
         return data;
     },
@@ -24,7 +34,8 @@ export const PedidoService = {
         const response = await fetch(`${API_URL}/pedidos/pedido`, {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
             },
             body: JSON.stringify(pedido)
         });
@@ -36,7 +47,8 @@ export const PedidoService = {
         const response = await fetch(`${API_URL}/pedidos/pedido/${id}`, {
             method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
             },
             body: JSON.stringify(pedido)
         });
@@ -46,58 +58,51 @@ export const PedidoService = {
 
     deletePedido: async(id: number) : Promise<void> => {
         await fetch(`${API_URL}/pedidos/pedido/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            }
         });
+    },
+
+
+    agregarDetalle: async(idPedido: number, idProducto: number, cantidad: number) : Promise<Pedido> => {
+        const response = await fetch(`${API_URL}/pedidos/pedido/agregarDetalle`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("token")
+            },
+            body: JSON.stringify({
+                idPedido: idPedido,
+                idProducto: idProducto,
+                cantidad: cantidad
+            })
+        });
+        const data = await response.json();
+        return data;
     },
 
 
 
 
 
-    getPedidoActual: async() : Promise<Pedido> => {
-        // Modificar para obtener al cliente desde LocalStorage,
-        let cliente = await PersonaService.getPersona(1);
+    getPedidoActual: async() : Promise<Pedido | undefined> => {
+        let cliente = await AuthService.getCurrentUser();
+        if(cliente === null) return undefined;
         let pedido: Pedido | null = null;
         cliente.pedidos.forEach(p => {
-            let epa = "" + p.estadoActual;
-            let pp = EstadoPedido[EstadoPedido.PENDIENTE_PAGO];
+            let epa: string = "" + p.estadoActual;
+            let pp: string = EstadoPedido.SIN_PEDIR;
             if (epa === pp) {
                 pedido = p;
             }
         });
         
         if (pedido === null) {
-            pedido = {
-                id: null,
-                fechaAlta: new Date(),
-                fechaModificacion: null,
-                fechaBaja: null,
-                fechaPedido: null,
-                horaEstimadaFinalizacion: null,
-                total: 0,
-                totalCosto: 0,
-                estadoActual: EstadoPedido.PENDIENTE_PAGO,
-                tipoEnvio: TipoEnvio.TAKE_AWAY,
-                formaPago: FormaPago.EFECTIVO,
-                detalles: [],
-                domicilioEntrega: cliente.domicilios[0],
-            };
-            cliente.pedidos.push(pedido);
-            cliente = await PersonaService.updatePersona(cliente.id, cliente);
-            /*
-                IMPORTANTE: NO LOGRO QUE ASIGNE EL CLIENTE AL PEDIDO.
-                Con Postman tampoco funciona
-            */
-            cliente.pedidos.forEach(p => {
-                let epa = "" + p.estadoActual;
-                let pp = EstadoPedido[EstadoPedido.PENDIENTE_PAGO];
-                if (epa === pp) {
-                    pedido = p;
-                }
-            });
+            //if (cliente.domicilios[0].id === null) throw "Error que nunca va a pasar";
+            pedido = await PersonaService.crearPedido(cliente.id, 1);
         }
-        //QUITAR ESTA LÍNEA CUANDO FUNCIONE EL RESTO
-        pedido = await PedidoService.getPedido(1);
         return pedido;
     }
     

@@ -32,7 +32,7 @@ export default function AdministrarEmpleados(){
 
     return (
         <>
-            <TitleBar userid={0}/>
+            <TitleBar />
             
             <Content>
                 <ContentBox width={100}>
