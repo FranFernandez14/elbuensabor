@@ -122,7 +122,7 @@ export default function ModificarMisDatos() {
                         </Flex>
 
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <Button click={() => { }} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
+                            <Button click={()=>{window.location.href="/MisDatos"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
                             <Button click={modificar} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
                         </Flex>
 
