@@ -59,7 +59,7 @@ export default function TitleBar() {
                 }>
                     <Text fontSize={TextSize.SMALL} underline={false} link={"MisDatos"}>Mi perfil</Text>
                     {opciones}
-                    <Text fontSize={TextSize.SMALL} underline={false} link={"HistorialPedidosUsuario"}>Historial de pedidos</Text>
+                    <Text fontSize={TextSize.SMALL} underline={false} link={"HistorialPedidos"}>Historial de pedidos</Text>
                     <Text fontSize={TextSize.SMALL} underline={false} link={"logout"}>Desconectarme</Text>
                 </div>
             </div>

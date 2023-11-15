@@ -19,7 +19,7 @@ import ComboBoxItem from "../Components/ComboBox/ComboBoxItem";
 import TextField from "../Components/TextField/TextField";
 import { TextFieldType } from "../Components/TextField/TextFieldType";
 import { FormaPago } from "../types/FormaPago";
-import { EstadoPedido } from "../types/EstadoPedido";
+
 
 export default function RealizarPedido(){
 
@@ -47,11 +47,7 @@ export default function RealizarPedido(){
         if(pedido === undefined || pedido.id === null || tipoEnvio === undefined || formaPago === undefined) return;
         pedido.tipoEnvio = tipoEnvio;
         pedido.formaPago = formaPago;
-        if(formaPago === FormaPago.EFECTIVO) {
-            pedido.estadoActual = EstadoPedido.PENDIENTE_PAGO;
-        } else {
-            pedido.estadoActual = EstadoPedido.PAGADO;
-        }
+        
         await PedidoService.updatePedido(pedido.id, pedido);
         window.location.href="/DetallePedido";
     }
@@ -119,7 +115,7 @@ export default function RealizarPedido(){
                                 </Flex>
                             </div>
                             <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                                <Button click={()=>{window.location.href="/Carrito"}} color={ButtonColor.DARK} width={ButtonWidth.HUG} fontSize={TextSize.SMALLER}>Atrás</Button>
+                                <Button click={()=>{window.location.href="/"}} color={ButtonColor.DARK} width={ButtonWidth.HUG} fontSize={TextSize.SMALLER}>Atrás</Button>
                                 {
                                     !isLoading && tipoEnvio !== undefined && formaPago !== undefined ? (
                                         <Button click={continuar} color={ButtonColor.ALT} width={ButtonWidth.HUG} fontSize={TextSize.SMALLER}>Siguiente</Button>
@@ -127,7 +123,7 @@ export default function RealizarPedido(){
                                 }
                             </Flex>                            
                         </ContentBox>
-                    )
+                    ) 
                 }
             </Content>
 
