@@ -18,6 +18,7 @@ import AdministrarProductos from './Pages/AdministrarProductos';
 import Carta from './Pages/Carta';
 import Carrito from './Pages/Carrito';
 import RealizarPedido from './Pages/RealizarPedido';
+import ModificarProducto from './Pages/ModificarProducto';
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
                 <Route path='/AdministrarEmpleados' element={<AdministrarEmpleados />} />
                 <Route path='/RegistrarEmpleado' element={<RegistrarEmpleado />} />
                 <Route path='/AdministrarProductos' element={<AdministrarProductos />} />
+                <Route path='/ModificarProducto' element={<ModificarProducto />} />
                 <Route path='/TestSeleccionarRol' element={
                   <Opciones>
                     <Button click={()=>{window.location.href = "/";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Cliente</Button>

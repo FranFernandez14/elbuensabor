@@ -2,16 +2,16 @@ import Receta from "./Receta";
 import RubroProducto from "./RubroProducto";
 
 export default interface Producto {
-    id: number,
+    id: number | null,
     fechaAlta: Date,
-    fechaModificacion: Date,
-    fechaBaja: Date,
+    fechaModificacion: Date | null,
+    fechaBaja: Date | null,
     denominacion: string,
     descripcion: string,
     tiempoEstimadoCocina: number,
     precioVenta: number,
     costo: number,
     urlImagen: string,
-    rubroProducto: RubroProducto,
+    rubroProducto: RubroProducto | null,
     receta: Receta
 }

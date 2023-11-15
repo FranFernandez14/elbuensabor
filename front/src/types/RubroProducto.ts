@@ -4,6 +4,5 @@ export default interface RubroProducto {
     fechaModificacion: Date,
     fechaBaja: Date,
     rubroPadre: RubroProducto,
-    subRubro : RubroProducto[],
     denominacion: string
 }

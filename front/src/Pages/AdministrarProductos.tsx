@@ -54,7 +54,7 @@ export default function AdministrarProductos(){
                                             </td>
                                             <td>
                                                 <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                                                    {producto.rubroProducto.denominacion}
+                                                    {/*producto.rubroProducto.denominacion*/}
                                                 </Flex>
                                             </td>
                                             <td>
@@ -71,7 +71,7 @@ export default function AdministrarProductos(){
                                             </td>
                                             <td>
                                                 <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                                                    <Button click={()=>{window.location.href = "/ModificarProducto/modificar/" + producto.id}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Modificar</Button>
+                                                    <Button click={()=>{window.location.href = "/ModificarProducto?accion=modificar&id=" + producto.id}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Modificar</Button>
                                                 </Flex>
                                             </td>
                                         </tr>
@@ -81,7 +81,7 @@ export default function AdministrarProductos(){
                         </tbody>
                     </Table>
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                        <Button click={()=>{window.location.href = "/ModificarProducto/nuevo"}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Nuevo</Button>
+                        <Button click={()=>{window.location.href = "/ModificarProducto?accion=crear"}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Nuevo</Button>
                     </Flex>
                 </ContentBox>
             </Content>

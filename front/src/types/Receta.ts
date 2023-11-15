@@ -1,10 +1,10 @@
 import DetalleReceta from "./DetalleReceta";
 
 export default interface Receta {
-    id: number,
+    id: number | null,
     fechaAlta: Date,
-    fechaModificacion: Date,
-    fechaBaja: Date,
+    fechaModificacion: Date | null,
+    fechaBaja: Date | null,
     descripcion: string,
     detalles: DetalleReceta[]
 }
