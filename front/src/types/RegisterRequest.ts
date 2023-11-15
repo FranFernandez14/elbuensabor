@@ -7,6 +7,6 @@ export default interface RegisterRequest {
     telefono: string,
     nombre: string,
     apellido: string,
-    domicilio: Domicilio,
+    domicilios: Domicilio[],
     rol: Rol
 }

@@ -46,7 +46,7 @@ export default function MisDatos(){
                         <Text fontSize={TextSize.SMALL} link={null}>{persona?.email} - {persona?.telefono}</Text>
                     </Flex>
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>{persona?.domicilios[0]?.calle}</Text>
+                        <Text fontSize={TextSize.SMALL} link={null}>{persona?.domicilios[0]?.calle + " "+ persona?.domicilios[0]?.numero}</Text>
                     </Flex>
  
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>

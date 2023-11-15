@@ -25,17 +25,17 @@ export default function ModificarMisDatos() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        console.log(persona?.domicilios);
         (async () => {
             const p: Persona | null = await AuthService.getCurrentUser();
             if (p === null) { window.location.href = "/login"; return; };
             setPersona(p);
+            console.log(persona);
             setIsLoading(false);
         })();
     }, []);
 
     async function modificar() {
-        if(persona?.id!=null){
+        if(persona!== undefined && persona?.id!==null){
             await PersonaService.updatePersona(persona.id, persona);
         }
     }
