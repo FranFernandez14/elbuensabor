@@ -61,7 +61,7 @@ export default function Register(){
             <Content>
                 <div className="customContentBox" style={
                     {
-                        width: "30%",
+                        width: "70%",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",

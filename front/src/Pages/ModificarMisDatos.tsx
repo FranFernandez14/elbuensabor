@@ -37,6 +37,7 @@ export default function ModificarMisDatos() {
     async function modificar() {
         if(persona!== undefined && persona?.id!==null){
             await PersonaService.updatePersona(persona.id, persona);
+            window.location.href = "/MisDatos"
         }
     }
 

@@ -54,18 +54,7 @@ export default function DetallePedido(){
         <>
             <TitleBar/>
             <Content>
-                <div className="customContentBox" style={
-                    {
-                        width: "40%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "12px",
-                        maxHeight: "100%"
-                    }
-                }>
-                <ContentBox width={100}>
+                <ContentBox width={80}>
 
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
                             <Text fontSize={TextSize.MEDIUM} link={null} align={TextAlign.CENTER}>Detalle del pedido N° {pedido?.id}</Text>
@@ -120,7 +109,6 @@ export default function DetallePedido(){
                         </Flex>                           
                         
                 </ContentBox>
-                </div>
             </Content>
             <Footer/>
         </>
