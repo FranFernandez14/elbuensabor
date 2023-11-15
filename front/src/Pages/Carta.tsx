@@ -59,7 +59,7 @@ export default function Carta(){
     async function changeDetalleCantidad(producto: Producto, cantidad: number) {
         let p = await PedidoService.getPedidoActual();
         if(p === undefined || p.id === null) return;
-
+        if(producto.id === null) return;
         p = await PedidoService.agregarDetalle(p.id, producto.id, cantidad);
         setPedido(p);
     }

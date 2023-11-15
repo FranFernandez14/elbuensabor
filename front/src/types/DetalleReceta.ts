@@ -2,12 +2,11 @@ import Insumo from "./Insumo";
 import Receta from "./Receta";
 
 export default interface DetalleReceta {
-    id: number,
+    id: number | null,
     fechaAlta: Date,
-    fechaModificacion: Date,
-    fechaBaja: Date,
+    fechaModificacion: Date | null,
+    fechaBaja: Date | null,
     cantidad: number,
     costo: number,
-    receta: Receta,
-    insumo: Insumo
+    insumo: Insumo | null
 }

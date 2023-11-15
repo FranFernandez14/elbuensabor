@@ -18,6 +18,7 @@ import AdministrarProductos from './Pages/AdministrarProductos';
 import Carta from './Pages/Carta';
 import Carrito from './Pages/Carrito';
 import RealizarPedido from './Pages/RealizarPedido';
+import ModificarProducto from './Pages/ModificarProducto';
 import DetallePedido from './Pages/DetallePedido';
 import PedidoConfirmado from './Pages/PedidoConfirmado';
 import HistorialPedidos from './Pages/HistorialPedidos';
@@ -44,6 +45,7 @@ export default function App() {
                 <Route path='/RegistrarEmpleado' element={<RegistrarEmpleado />} />
                 <Route path='/DetallePedido' element={<DetallePedido/>} />
                 <Route path='/AdministrarProductos' element={<AdministrarProductos />} />
+                <Route path='/ModificarProducto' element={<ModificarProducto />} />
                 <Route path='/HistorialPedidos' element={<HistorialPedidos />} />
                 <Route path='/TestSeleccionarRol' element={
                   <Opciones>

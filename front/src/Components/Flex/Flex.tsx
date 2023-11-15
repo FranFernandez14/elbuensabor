@@ -7,7 +7,8 @@ export default function Flex(
     props : {
         children : React.ReactNode,
         direction : FlexDirection,
-        align : FlexAlign
+        align : FlexAlign,
+        width?: number
     }
 ) {
     let c : string = "Row";
@@ -42,7 +43,8 @@ export default function Flex(
     return (
         <div className={"Flex " + c} style={
             {
-                justifyContent: jc
+                justifyContent: jc,
+                width: props.width === undefined ? "default" : props.width + "%"
             }
         }>
             {props.children}

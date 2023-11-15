@@ -24,6 +24,8 @@ export const ProductoService = {
     },
 
     createProducto: async(producto: Producto) : Promise<Producto> => {
+        console.log(JSON.stringify(producto));
+        
         const response = await fetch(`${API_URL}/productos/producto`, {
             method: "POST",
             headers: {
