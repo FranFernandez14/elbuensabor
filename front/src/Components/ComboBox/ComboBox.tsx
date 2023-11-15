@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Icon from "../Icon/Icon"
 import { IconSize } from "../Icon/IconSize"
 import "./ComboBox.css"
@@ -8,7 +8,8 @@ export default function ComboBox(
         children: React.ReactNode,
         placeholder ?: string,
         change ?: (id: number) => void,
-        fullWidth?: boolean
+        fullWidth?: boolean,
+        default?:number
     }
 ) {
 
@@ -25,6 +26,7 @@ export default function ComboBox(
 
     const [selected, setSelected] = React.useState<selectedItem>({element : undefined, id :-1});
 
+    const [children, setChildren] = React.useState<React.ReactNode[]>([]);
     function select(e : React.ReactNode, id : number) {
         setSelected({element : e, id : id});
         if(props.change !== undefined) {
@@ -32,15 +34,24 @@ export default function ComboBox(
         }
         setOpen(false);
     }
-
-    const children = React.Children.map(
-        props.children, 
-        child => {
-            if(React.isValidElement(child))
-                return React.cloneElement(child, {select : select}, child.props.children);
-            return child;
-        }
-    );
+    useEffect(()=>{
+        const children = React.Children.map(
+            props.children, 
+            child => {
+                if(React.isValidElement(child)) {
+                    let aux = React.cloneElement(child, {select : select}, child.props.children);
+                    if(props.default !== undefined && child.props.id === props.default) {
+                        setSelected({element : aux, id : props.default});
+                    }; 
+                    return aux;
+                }
+                return child;
+            }
+        );
+        if(children === undefined || children === null) return;
+        setChildren(children);
+    },[]);
+    
     return (
         <div className="ComboBox" style={{
             width: props.fullWidth ? "100%" : "fit-content"

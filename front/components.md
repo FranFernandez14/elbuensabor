@@ -80,6 +80,7 @@ Atributos:
 * placeholder: string con texto a mostrar cuando no se ha seleccionado ninguna opción
 * change: función que toma un número y no devuelve nada, ejecutada cada vez que se cambia el item seleccionado pasándole como argumento la id del mismo
 * fullWidth: booleano que indica si la ComboBox debe ocupar todo el ancho disponible
+* default: id del ComboBoxItem seleccionado por defect
 
 Debe contener ComboBoxItems.
 
@@ -170,7 +171,7 @@ Genera subcontenedores dentro de Content, con un fondo violeta claro y cuyo cont
 
 Propiedades:
 
-* width (number): porcentaje del ancho del padre que tomará como ancho.
+* width (number): porcentaje del ancho del padre que tomará como ancho
 
 Este componente tiene contenido.
 
@@ -183,6 +184,7 @@ Propiedades:
 
 * direction (FlexDirecion.ROW | FlexDirecion.COLUMN | FlexDirecion.WRAP): establece si los elementos se colocarán en fila de izquierda a derecha (ROW), si podrán continuar en una nueva fila debajo si se ocupa todo el ancho de la fila (WRAP) o si los elementos se colocarán en una columna
 * align (FlexAlign.START | FlexAlign.CENTER | FlexAlign.END | FlexAlign.EXTREMES): establece cómo se alinearán los contenidos dentro del contenedor: si desde la izquierda o arriba (START), desde la derecha o abajo (END), en el centro (CENTER) o lo más separados posibles (en los extremos) (EXTREMES)
+* width: porcentaje del ancho del contenedor que debe ocupar
 
 Este componente tiene contenido.
 
