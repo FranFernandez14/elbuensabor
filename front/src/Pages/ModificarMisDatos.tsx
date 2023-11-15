@@ -12,57 +12,127 @@ import { FlexDirection } from "../Components/Flex/FlexDirection";
 import Footer from "../Components/Footer/Footer";
 import TextField from "../Components/TextField/TextField";
 import { TextFieldType } from "../Components/TextField/TextFieldType";
-import ComboBox from "../Components/ComboBox/ComboBox";
-import ComboBoxItem from "../Components/ComboBox/ComboBoxItem";
+import { useEffect, useState } from "react";
+import Persona from "../types/Persona";
+import { AuthService } from "../services/AuthService";
+import { PersonaService } from "../services/PersonaService";
 
-export default function ModificarMisDatos(){
+
+
+export default function ModificarMisDatos() {
+
+    const [persona, setPersona] = useState<Persona>();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        (async () => {
+            const p: Persona | null = await AuthService.getCurrentUser();
+            if (p === null) { window.location.href = "/login"; return; };
+            setPersona(p);
+            console.log(persona);
+            setIsLoading(false);
+        })();
+    }, []);
+
+    async function modificar() {
+        if(persona!== undefined && persona?.id!==null){
+            await PersonaService.updatePersona(persona.id, persona);
+        }
+    }
+
+
+
     return (
         <>
-            <TitleBar />
-            
-            <Content>
-                <ContentBox width={70}>
-                    <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.MEDIUM} link={null}>Modificar Mis Datos</Text>
-                    </Flex>
 
-                    <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>Pepe Honguito - Cocinero</Text>
-                    </Flex>
-                    <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>E-mail</Text>
-                        <TextField placeholder={"su-nombre@example.com"} type={TextFieldType.SINGLELINE}/>
-                        <Text fontSize={TextSize.SMALL} link={null}>Teléfono</Text>
-                        <TextField placeholder={""} type={TextFieldType.SINGLELINE}/>
-                    </Flex>
-                    <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>Dirección</Text>
-                        <TextField placeholder={""} type={TextFieldType.SINGLELINE}/>
-                        <ComboBox placeholder="Departamento">
-                            <ComboBoxItem id={1}>Mendoza</ComboBoxItem>
-                            <ComboBoxItem id={2}>Godoy Cruz</ComboBoxItem>
-                            <ComboBoxItem id={3}>Maipú</ComboBoxItem>
-                            <ComboBoxItem id={4}>Guaymallén</ComboBoxItem>
-                            <ComboBoxItem id={5}>Las Heras</ComboBoxItem>
-                            <ComboBoxItem id={6}>San Martín</ComboBoxItem>
-                            <ComboBoxItem id={7}>Lavalle</ComboBoxItem>
-                        </ComboBox>
-                    </Flex>
-                    <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>Contraseña</Text>
-                        <TextField placeholder={""} type={TextFieldType.PASSWORD}/>
-                        <Text fontSize={TextSize.SMALL} link={null}>Repetir Contraseña</Text>
-                        <TextField placeholder={""} type={TextFieldType.PASSWORD}/>
-                    </Flex>
- 
-                    <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                        <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
-                        <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
-                    </Flex>
-                </ContentBox>
+            <TitleBar />
+
+            <Content>
+                <>  {isLoading || persona === undefined ? "" : (
+                    <ContentBox width={70}>
+
+
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                            <Text fontSize={TextSize.MEDIUM} link={null}>Modificar Mis Datos</Text>
+                        </Flex>
+
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                            <Text fontSize={TextSize.SMALL} link={null}>{persona?.nombre} {persona?.apellido} - {persona?.rol}</Text>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                            <Text fontSize={TextSize.SMALL} link={null}>E-mail</Text>
+                            <TextField
+                                placeholder={persona?.email !== undefined ? persona?.email : ""}
+                                type={TextFieldType.SINGLELINE}
+                                value={persona?.email}
+                                setValue={(v: string) => { persona.email = v }}
+                            />
+                            <Text fontSize={TextSize.SMALL} link={null}>Teléfono</Text>
+                            <TextField
+                                placeholder={persona?.telefono !== undefined ? persona?.telefono : ""}
+                                type={TextFieldType.SINGLELINE}
+                                value={persona?.telefono}
+                                setValue={(v: string) => { persona.telefono = v }}
+                            />
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                            <Text fontSize={TextSize.SMALL} link={null}>Calle</Text>
+                            <TextField
+                                placeholder={persona?.domicilios[0]?.calle !== undefined ? persona?.domicilios[0]?.calle : ""}
+                                type={TextFieldType.SINGLELINE}
+                                value={persona?.domicilios[0]?.calle}
+                                setValue={(v: string) => { persona.domicilios[0].calle = v }}
+                            />
+                            <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                                <Text fontSize={TextSize.SMALL} link={null}>Número</Text>
+                                <TextField  
+                                    placeholder={"" + (persona?.domicilios[0]?.numero !== undefined ? persona?.domicilios[0]?.numero : "")}
+                                    type={TextFieldType.SINGLELINE}
+                                    value={"" + persona?.domicilios[0]?.numero}
+                                    setValue={(v: string) => { persona.domicilios[0].numero = Number(v) }}
+                                />
+                            </Flex>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                            <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                                <Text fontSize={TextSize.SMALL} link={null}>Piso</Text>
+                                <TextField
+                                    placeholder={"" + (persona?.domicilios[0]?.pisoDpto !== undefined ? persona?.domicilios[0]?.pisoDpto : "")}
+                                    type={TextFieldType.SINGLELINE}
+                                    value={"" + persona?.domicilios[0]?.pisoDpto}
+                                    setValue={(v: string) => { persona.domicilios[0].pisoDpto = Number(v) }}
+                                />
+                                <Text fontSize={TextSize.SMALL} link={null}>Departamento</Text>
+                                <TextField
+                                    placeholder={"" + (persona?.domicilios[0]?.numeroDpto !== undefined ? persona?.domicilios[0]?.numeroDpto : "")}
+                                    type={TextFieldType.SINGLELINE}
+                                    value={"" + persona?.domicilios[0]?.numeroDpto}
+                                    setValue={(v: string) => { persona.domicilios[0].numeroDpto = Number(v) }}
+                                />
+                            </Flex>
+
+
+                            <Text fontSize={TextSize.SMALL} link={null}>Localidad</Text>
+                            <TextField
+                                placeholder={persona?.domicilios[0]?.localidad !== undefined ? persona?.domicilios[0]?.localidad : ""}
+                                type={TextFieldType.SINGLELINE}
+                                value={persona?.domicilios[0]?.localidad}
+                                setValue={(v: string) => { persona.domicilios[0].localidad = v }}
+                            />
+                        </Flex>
+
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                            <Button click={()=>{window.location.href="/MisDatos"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Cancelar</Button>
+                            <Button click={modificar} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Aceptar</Button>
+                        </Flex>
+
+
+                    </ContentBox>
+                )}</>
             </Content>
 
-            <Footer/>
+            <Footer />
+            )
         </>
     );
 }

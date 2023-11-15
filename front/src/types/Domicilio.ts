@@ -1,4 +1,4 @@
-import Persona from "./Persona";
+    import Persona from "./Persona";
 
 
 export default interface Domicilio{
@@ -7,10 +7,10 @@ export default interface Domicilio{
     fechaModificacion: Date | null,
     fechaBaja: Date | null,
     calle: string,
-    numero: number,
-    codigoPostal: number,
+    numero: number | undefined,
+    codigoPostal: number | undefined,
     localidad: string,
-    numeroDpto: number,
-    pisoDpto: number,
+    numeroDpto: number | undefined,
+    pisoDpto: number | undefined,
     persona: Persona | null
 }

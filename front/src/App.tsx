@@ -19,6 +19,9 @@ import Carta from './Pages/Carta';
 import Carrito from './Pages/Carrito';
 import RealizarPedido from './Pages/RealizarPedido';
 import ModificarProducto from './Pages/ModificarProducto';
+import DetallePedido from './Pages/DetallePedido';
+import PedidoConfirmado from './Pages/PedidoConfirmado';
+import HistorialPedidos from './Pages/HistorialPedidos';
 
 export default function App() {
   return (
@@ -33,14 +36,17 @@ export default function App() {
                 <Route path='/Carta' element={<Carta />} />
                 <Route path='/Carrito' element={<Carrito />} />
                 <Route path='/RealizarPedido' element={<RealizarPedido />} />
+                <Route path='/PedidoConfirmado' element={<PedidoConfirmado />} />
                 <Route path='/MisDatos' element={<MisDatos />} />
                 <Route path='/PedidosCajero' element={<PedidosCajero />} />
                 <Route path='/ModificarMisDatos' element={<ModificarMisDatos />} />
                 <Route path='/ProductosMasVendidos' element={<ProductosMasVendidos />} />
                 <Route path='/AdministrarEmpleados' element={<AdministrarEmpleados />} />
                 <Route path='/RegistrarEmpleado' element={<RegistrarEmpleado />} />
+                <Route path='/DetallePedido' element={<DetallePedido/>} />
                 <Route path='/AdministrarProductos' element={<AdministrarProductos />} />
                 <Route path='/ModificarProducto' element={<ModificarProducto />} />
+                <Route path='/HistorialPedidos' element={<HistorialPedidos />} />
                 <Route path='/TestSeleccionarRol' element={
                   <Opciones>
                     <Button click={()=>{window.location.href = "/";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Cliente</Button>

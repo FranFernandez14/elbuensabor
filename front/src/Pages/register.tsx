@@ -27,19 +27,19 @@ export default function Register(){
         telefono: "",
         nombre: "",
         apellido: "",
-        domicilio: {
+        domicilios: [{
             id: null,
             fechaAlta: new Date(),
             fechaModificacion: null,
             fechaBaja: null,
             calle: "",
-            numero: 0,
-            codigoPostal: 0,
+            numero: undefined,
+            codigoPostal: undefined,
             localidad: "",
-            numeroDpto: 0,
-            pisoDpto: 0,
+            numeroDpto: undefined,
+            pisoDpto: undefined,
             persona: null
-        },
+        }],
         rol: Rol.CLIENTE
     });
 
@@ -87,14 +87,48 @@ export default function Register(){
                             <TextField placeholder={"Apellido"} type={TextFieldType.SINGLELINE} value={request.apellido} setValue={(v: string) => {request.apellido = v}}/>
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Teléfono"} type={TextFieldType.SINGLELINE}  value={request.telefono} setValue={(v: string) => {request.telefono = v}}/>
-                            <TextField placeholder={"Departamento"} type={TextFieldType.SINGLELINE}  value={request.domicilio.localidad} setValue={(v: string) => {request.domicilio.localidad = v}}/>
-                        </Flex>
-                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                            <TextField placeholder={"Dirección"} type={TextFieldType.SINGLELINE}  value={request.domicilio.calle} setValue={(v: string) => {request.domicilio.calle = v}}/>
-                        </Flex>
-                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <TextField placeholder={"Correo"} type={TextFieldType.SINGLELINE} value={request.email} setValue={(v: string) => {request.email = v}}/>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                            <TextField placeholder={"Teléfono"} type={TextFieldType.SINGLELINE}  value={request.telefono} setValue={(v: string) => {request.telefono = v}}/>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                            <TextField
+                                placeholder={"Calle"}
+                                type={TextFieldType.SINGLELINE}
+                                value={request.domicilios[0]?.calle}
+                                setValue={(v: string) => { request.domicilios[0].calle = v }}
+                            />
+                            <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                                <TextField  
+                                    placeholder={"N°"}
+                                    type={TextFieldType.SINGLELINE}
+                                    value={"" + (request?.domicilios[0]?.numero !== undefined ? request?.domicilios[0]?.numero : "")}
+                                    setValue={(v: string) => { request.domicilios[0].numero = Number(v) }}
+                                />
+                            </Flex>
+                        </Flex>
+                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                            <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
+                                <TextField
+                                    placeholder={"Piso"}
+                                    type={TextFieldType.SINGLELINE}
+                                    value={"" + (request?.domicilios[0]?.pisoDpto !== undefined ? request?.domicilios[0]?.pisoDpto : "")}
+                                    setValue={(v: string) => { request.domicilios[0].pisoDpto = Number(v) }}
+                                />
+                                <TextField
+                                    placeholder={"Departamento"}
+                                    type={TextFieldType.SINGLELINE}
+                                    value={"" + (request?.domicilios[0]?.numeroDpto !== undefined ? request?.domicilios[0]?.numeroDpto : "")}
+                                    setValue={(v: string) => { request.domicilios[0].numeroDpto = Number(v) }}
+                                />
+                            </Flex>
+                            <TextField
+                                placeholder={"Localidad"}
+                                type={TextFieldType.SINGLELINE}
+                                value={request?.domicilios[0]?.localidad}
+                                setValue={(v: string) => { request.domicilios[0].localidad = v }}
+                            />
                         </Flex>
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <TextField placeholder={"Contraseña"} type={TextFieldType.PASSWORD} value={request.password} setValue={(v: string) => {request.password = v}}/>

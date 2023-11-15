@@ -49,7 +49,7 @@ export default function TitleBar() {
         
         right = (
             <div>
-                <Text fontSize={TextSize.MEDIUM} link={null}>Cosme Fulanito</Text>
+                <Text fontSize={TextSize.MEDIUM} link={null}>{persona.nombre} {persona.apellido}</Text>
                 <Icon size={IconSize.MEDIUM} src={"images/usericon.svg"} click={() => {setIsMenuVisible(!isMenuVisible)} }/>
                 <div className="TitleBarMenu" style={
                     {
@@ -59,7 +59,7 @@ export default function TitleBar() {
                 }>
                     <Text fontSize={TextSize.SMALL} underline={false} link={"MisDatos"}>Mi perfil</Text>
                     {opciones}
-                    <Text fontSize={TextSize.SMALL} underline={false} link={"HistorialPedidosUsuario"}>Historial de pedidos</Text>
+                    <Text fontSize={TextSize.SMALL} underline={false} link={"HistorialPedidos"}>Historial de pedidos</Text>
                     <Text fontSize={TextSize.SMALL} underline={false} link={"logout"}>Desconectarme</Text>
                 </div>
             </div>
