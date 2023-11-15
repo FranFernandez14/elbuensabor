@@ -10,8 +10,24 @@ import Flex from "../Components/Flex/Flex";
 import { FlexAlign } from "../Components/Flex/FlexAlign";
 import { FlexDirection } from "../Components/Flex/FlexDirection";
 import Footer from "../Components/Footer/Footer";
+import { useEffect, useState } from "react";
+import Persona from "../types/Persona";
+import { AuthService } from "../services/AuthService";
+
+
+
 
 export default function MisDatos(){
+
+
+    const [persona, setPersona] = useState<Persona | null>(null);
+
+    useEffect(() => {
+        (async () => {
+            setPersona(await AuthService.getCurrentUser());
+        })();
+    }, []);
+
 
     return (
         <>
@@ -24,18 +40,18 @@ export default function MisDatos(){
                     </Flex>
 
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>Pepe Honguito - Cocinero</Text>
+                        <Text fontSize={TextSize.SMALL} link={null}>{persona?.nombre} {persona?.apellido} - {persona?.rol}</Text>
                     </Flex>
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>pedrohongo@gmail.com - 2612345678</Text>
+                        <Text fontSize={TextSize.SMALL} link={null}>{persona?.email} - {persona?.telefono}</Text>
                     </Flex>
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                        <Text fontSize={TextSize.SMALL} link={null}>Calle Falsa 1234</Text>
+                        <Text fontSize={TextSize.SMALL} link={null}>{persona?.domicilios[0]?.calle + " "+ persona?.domicilios[0]?.numero}</Text>
                     </Flex>
  
                     <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                        <Button click={()=>{}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Atrás</Button>
-                        <Button click={()=>{window.location.href="ModificarMisDatos"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Modificar</Button>
+                        <Button click={()=>{window.location.href="/"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Atrás</Button>
+                        <Button click={()=>{window.location.href="/ModificarMisDatos"}} fontSize={TextSize.SMALL} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Modificar</Button>
                     </Flex>
                 </ContentBox>
             </Content>
