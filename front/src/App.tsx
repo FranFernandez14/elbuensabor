@@ -20,6 +20,7 @@ import Carrito from './Pages/Carrito';
 import RealizarPedido from './Pages/RealizarPedido';
 import DetallePedido from './Pages/DetallePedido';
 import PedidoConfirmado from './Pages/PedidoConfirmado';
+import HistorialPedidos from './Pages/HistorialPedidos';
 
 export default function App() {
   return (
@@ -43,6 +44,7 @@ export default function App() {
                 <Route path='/RegistrarEmpleado' element={<RegistrarEmpleado />} />
                 <Route path='/DetallePedido' element={<DetallePedido/>} />
                 <Route path='/AdministrarProductos' element={<AdministrarProductos />} />
+                <Route path='/HistorialPedidos' element={<HistorialPedidos />} />
                 <Route path='/TestSeleccionarRol' element={
                   <Opciones>
                     <Button click={()=>{window.location.href = "/";}} fontSize={TextSize.SMALL} width={ButtonWidth.FILL} color={ButtonColor.DARK}>Cliente</Button>

@@ -17,30 +17,20 @@ import Pedido from "../types/Pedido";
 import { PedidoService } from "../services/PedidoService";
 import { FormaPago } from "../types/FormaPago";
 import { EstadoPedido } from "../types/EstadoPedido";
-import Producto from "../types/Producto";
-import { ProductoService } from "../services/ProductoService";
 import Table from "../Components/Table/Table";
 import { TableStyle } from "../Components/Table/TableStyle";
 
-export default function DetallePedido() {
+export default function DetallePedido(){
 
     const [pedido, setPedido] = useState<Pedido>();
 
     const [isLoading, setIsLoading] = useState(true);
 
-    const [producto, setProducto] = useState<Producto>();
-
     useEffect(() => {
         (async () => {
             const p = await PedidoService.getPedidoActual();
-            const i = producto?.id;
-            if(i){
-                const p = await ProductoService.getProducto(i);
-                setProducto(p);
-            }
             setPedido(p);
             setIsLoading(false);
-            
         })();
     }, []);
 
@@ -59,6 +49,7 @@ export default function DetallePedido() {
         window.location.href="/PedidoConfirmado";
     }
 
+    
     return(
         <>
             <TitleBar/>
@@ -84,12 +75,6 @@ export default function DetallePedido() {
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
                             <Text fontSize={TextSize.SMALL} link={null} align={TextAlign.CENTER}>{pedido?.tipoEnvio}</Text>
                             <Text fontSize={TextSize.SMALL} link={null} align={TextAlign.CENTER}>Medio de pago: {pedido?.formaPago}</Text>
-                        </Flex>
-
-                        <Flex direction={FlexDirection.ROW} align={FlexAlign.EXTREMES}>
-                            <Text fontSize={TextSize.SMALL} link={null} align={TextAlign.CENTER}>{producto?.denominacion}</Text>
-                            <Text fontSize={TextSize.SMALL} link={null} align={TextAlign.CENTER}>{producto?.precioVenta}</Text>
-                            <Text fontSize={TextSize.SMALL} link={null} align={TextAlign.CENTER}>{}</Text>
                         </Flex>
 
                         <Table style={TableStyle.SEAMLESS} width={100}>
@@ -125,15 +110,15 @@ export default function DetallePedido() {
                             <Text fontSize={TextSize.SMALL} link={null} align={TextAlign.CENTER}>${pedido?.total}</Text>
                         </Flex>
                         
-                        
+                           
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
                             <Text fontSize={TextSize.SMALL} link={null} align={TextAlign.CENTER}>Recibirá su pedido en unos 25 minutos</Text>
-                        </Flex>
-
-
+                        </Flex> 
+                        
                         <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
-                                <Button click={continuar} color={ButtonColor.ALT} width={ButtonWidth.HUG} fontSize={TextSize.SMALL}>Confirmar pedido</Button>  
-                        </Flex>  
+                            <Button click={continuar} color={ButtonColor.ALT} width={ButtonWidth.HUG} fontSize={TextSize.SMALL}>Confirmar pedido</Button>  
+                        </Flex>                           
+                        
                 </ContentBox>
                 </div>
             </Content>

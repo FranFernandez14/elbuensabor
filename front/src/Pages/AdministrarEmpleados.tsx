@@ -84,6 +84,21 @@ export default function AdministrarEmpleados(){
                                     </Flex>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Cocinero</td>
+                                <td>Sol</td>
+                                <td>Falabella</td>
+                                <td>solfalabella@gmail.com</td>
+                                <td>2604824749</td>
+                                <td>Dirección de la Sol</td>
+                                <td>
+                                    <Flex direction={FlexDirection.ROW} align={FlexAlign.CENTER}>
+                                        <Button click={()=>{}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.LIGHT}>Modificar</Button>
+                                        <Button click={()=>{mostrarModal(false, "Sol", "Falabella");}} fontSize={TextSize.SMALLER} width={ButtonWidth.HUG} color={ButtonColor.ALT}>Dar de baja</Button>
+                                    </Flex>
+                                </td>
+                            </tr>
                         </tbody>
                     </Table>
                 </ContentBox>

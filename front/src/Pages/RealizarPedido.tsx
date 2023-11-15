@@ -19,7 +19,7 @@ import ComboBoxItem from "../Components/ComboBox/ComboBoxItem";
 import TextField from "../Components/TextField/TextField";
 import { TextFieldType } from "../Components/TextField/TextFieldType";
 import { FormaPago } from "../types/FormaPago";
-import { EstadoPedido } from "../types/EstadoPedido";
+
 
 export default function RealizarPedido(){
 
